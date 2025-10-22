@@ -201,7 +201,7 @@ header {
 /* === 스크롤 후 축소 상태 === */
 .nav_warp.shrink {
     height: 80px;
-    background: #fff url("/image/background.png") no-repeat;
+    background: #fff url("image/background.png") no-repeat;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
