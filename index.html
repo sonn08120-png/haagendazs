@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/slider.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.js"></script>
+</head>
+
+<body>
+    <div class="dot-nav">
+        <button class="dot active" data-target="header"></button>
+        <button class="dot" data-target="menu"></button>
+        <button class="dot" data-target="store_menu"></button>
+        <button class="dot" data-target="sns_warp"></button>
+        <button class="dot" data-target="footer"></button>
+    </div>
+    <header>
+        <div class="nav_warp">
+            <div class="nav_back">
+                <div class="nav">
+                    <h1>
+                        <a href="/index.html"><img src="/image/logo.png" class="logo-default"></a>
+                        <a href="/index.html"><img src="/image/logo_02.png" class="logo-scrolled"></a>
+                    </h1>
+                    <ul>
+                        <li><a href="">Brand</a></li>
+                        <li><a href="">Menu</a></li>
+                        <li><a href="">Online Shop</a></li>
+                        <li><a href="/sub_02.html">Store</a></li>
+                        <li><a href="/sub_01.html">B2B</a></li>
+                    </ul>
+                    <p><a href="">login</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="video-wrap">
+            <iframe class="video"
+                src="https://player.vimeo.com/video/1071707544?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;background=1"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" title="(HS)하겐다즈_리테일_스틱바영상 tvcf용 0220(mp4)">
+            </iframe>
+        </div>
+    </header>
+    <main>
+        <div class="menu">
+            <div class="menu_warp">
+                <h2>HaagenDazs Menu</h2>
+                <ul class="menu_bar">
+                    <li class="active"><span>Cup Icecream</span></li>
+                    <li><span>Bar Icecream</span></li>
+                    <li><span>Sand Icecream</span></li>
+                    <li><span>Cake</span></li>
+                </ul>
+
+                <ul class="menu_list">
+                    <li><img src="image/cup_01.png" data-name="cup_01"></li>
+                    <li><img src="image/cup_02.png" data-name="cup_02"></li>
+                    <li><img src="image/cup_03.png" data-name="cup_03"></li>
+                    <li><img src="image/cup_04.png" data-name="cup_04"></li>
+                    <li><img src="image/cup_05.png" data-name="cup_05"></li>
+                </ul>
+                <p>more<img src="/image/circle.png"></p>
+            </div>
+        </div>
+
+        <!-- ✅ 모달 -->
+        <div id="modal" class="hidden">
+            <div class="modal_content">
+                <span class="close">&times;</span>
+                <div class="modal_body"></div>
+            </div>
+        </div>
+
+        <script>
+            /* ============================
+            카테고리별 이미지 세트
+            ============================ */
+            const menuItems = document.querySelectorAll(".menu_bar li");
+            const menuList = document.querySelector(".menu_list");
+
+            const images = {
+                "Cup Icecream": [
+                    "image/cup_01.png",
+                    "image/cup_02.png",
+                    "image/cup_03.png",
+                    "image/cup_04.png",
+                    "image/cup_05.png"
+                ],
+                "Bar Icecream": [
+                    "image/bar_01.png",
+                    "image/bar_02.png",
+                    "image/bar_03.png",
+                    "image/bar_04.png",
+                    "image/bar_05.png"
+                ],
+                "Sand Icecream": [
+                    "image/sand_01.png",
+                    "image/sand_02.png",
+                    "image/sand_03.png",
+                    "image/sand_04.png",
+                    "image/sand_05.png"
+                ],
+                "Cake": [
+                    "image/cake_01.png",
+                    "image/cake_02.png",
+                    "image/cake_03.png"
+                ]
+            };
+
+            /* ============================
+            제품 데이터
+            ============================ */
+            const productData = {
+                /* -----------------
+                    Cup Icecream
+                ------------------ */
+                cup_01: {
+                    title: "하겐다즈 그린티 앤 아몬드 (싱글바) 80ml",
+                    eng: "Green Tea & Almond",
+                    desc: "달콤쌉쌀한 그린티와 고소한 아몬드, 부드러운 밀크초콜릿의 완벽한 밸런스",
+                    allergy: "우유, 계란, 대두, 아몬드",
+                    img: "image/cup_01.png",
+                    nutrition: `
+                        <table class="nutrition">
+                        <tr><th>구분</th><th>1회 제공량 함량</th><th>일일 기준치 대비</th></tr>
+                        <tr><td>칼로리</td><td>257 kcal</td><td>-</td></tr>
+                        <tr><td>나트륨</td><td>43 mg</td><td>2%</td></tr>
+                        <tr><td>탄수화물</td><td>18.3 g</td><td>6%</td></tr>
+                        <tr><td>당류</td><td>16.7 g</td><td>17%</td></tr>
+                        <tr><td>지방</td><td>18.6 g</td><td>34%</td></tr>
+                        <tr><td>포화지방</td><td>10.9 g</td><td>67%</td></tr>
+                        <tr><td>콜레스테롤</td><td>53 mg</td><td>18%</td></tr>
+                        <tr><td>단백질</td><td>4.2 g</td><td>8%</td></tr>
+                        </table>
+                    `
+                },
+
+                /* -----------------
+                    Bar Icecream
+                ------------------ */
+
+                /* -----------------
+                    Sand Icecream
+                ------------------ */
+
+                /* -----------------
+                    Cake
+                ------------------ */
+
+            };
+
+            /* ============================
+            모달 기능
+            ============================ */
+            const modal = document.getElementById("modal");
+            const modalLeft = modal.querySelector(".modal_left");
+            const modalRight = modal.querySelector(".modal_right");
+            const closeBtn = modal.querySelector(".close");
+
+            // 이미지 클릭 시 모달 열기
+            document.querySelectorAll(".menu_list img").forEach(img => {
+                img.addEventListener("click", () => {
+                const name = img.dataset.name;
+                const data = productData[name];
+                    if (!data) return;
+
+                        modalBody.innerHTML = `
+                    <div class="modal_inner">
+                    <div class="modal_left">
+                        <img src="${data.img}" alt="${data.title}">
+                    </div>
+                    <div class="modal_right">
+                        <h2>${data.title}</h2>
+                        <h3>${data.eng}</h3>
+                        <p class="desc">${data.desc}</p>
+                        <p><strong style="color:#5a0f2d;">알레르기 유발 성분:</strong> ${data.allergy}</p>${data.nutrition}
+                    </div>
+                    </div>
+                    `;
+                        modal.classList.remove("hidden");
+                    });
+                });
+            attachModalEvents();
+
+            // 닫기 버튼
+            closeBtn.addEventListener("click", () => closeModal());
+            modal.addEventListener("click", e => {
+            if (e.target === modal) closeModal();
+            });
+            document.addEventListener("keydown", e => {
+            if (e.key === "Escape") closeModal();
+            });
+
+            function closeModal() {
+            modal.classList.remove("show");
+            setTimeout(() => {
+            modal.classList.add("hidden");
+            }, 400);
+            }
+
+            // 배경 클릭 시 닫기
+            modal.addEventListener("click", e => {
+                if (e.target === modal) modal.classList.add("hidden");
+            });
+
+            /* ============================
+            메뉴 클릭 시 이미지 변경
+            ============================ */
+            menuItems.forEach(item => {
+                item.addEventListener("click", () => {
+                    menuItems.forEach(i => i.classList.remove("active"));
+                    item.classList.add("active");
+
+                    const category = item.textContent.trim();
+                    const imgs = images[category];
+
+                    menuList.innerHTML = imgs
+                        .map((src, idx) => {
+                            const name = `${category.toLowerCase().split(" ")[0]}_${String(idx + 1).padStart(2, "0")}`;
+                            return `<li><img src="${src}" data-name="${name}" alt="${category}"></li>`;
+                        })
+                        .join("");
+
+                    attachModalEvents(); // 새 이미지에도 클릭 이벤트 다시 연결
+                });
+            });
+        </script>
+        <div class="store_menu">
+            <div class="store_menu_warp">
+                <h2>Store Menu</h2>
+                <ul class="store_menu_bar">
+                    <li class="active"><span>Icecream Drink</span></li>
+                    <li><span>Dessert</span></li>
+                </ul>
+                <ul class="store_menu_list">
+                    <li><img src="image/drink_01.png"></li>
+                    <li><img src="image/drink_02.png"></li>
+                    <li><img src="image/drink_03.png"></li>
+                    <li><img src="image/drink_04.png"></li>
+                    <li><img src="image/drink_05.png"></li>
+                </ul>
+                <p>more<img src="/image/circle.png"></p>
+            </div>
+            <script>
+                /* ============================
+                Store Menu (하단)
+                ============================ */
+                (function () {
+                    const storeItems = document.querySelectorAll(".store_menu_bar li");
+                    const storeList = document.querySelector(".store_menu_list");
+
+                    const storeImages = {
+                        "Icecream Drink": [
+                            "image/drink_01.png",
+                            "image/drink_02.png",
+                            "image/drink_03.png",
+                            "image/drink_04.png",
+                            "image/drink_05.png"
+                        ],
+                        "Dessert": [
+                            "image/sand_01.png",
+                            "image/dessert_01.png",
+                            "image/dessert_02.png",
+                            "image/sand_01.png"
+                        ]
+                    };
+
+                    storeItems.forEach(item => {
+                        item.addEventListener("click", () => {
+                            storeItems.forEach(i => i.classList.remove("active"));
+                            item.classList.add("active");
+
+                            const category = item.textContent.trim();
+                            const imgs = storeImages[category];
+
+                            storeList.innerHTML = imgs
+                                .map(src => `<li><img src="${src}" alt="${category}"></li>`)
+                                .join("");
+                        });
+                    });
+                })();
+            </script>
+            <div class="store_info_warp">
+                <div class="store_info">
+                    <h2><a href="/sub_02.html">Store Info</a></h2>
+                    <ul class="store_info_list">
+                        <li>여의도점</li>
+                        <li>분당미금점</li>
+                        <li>부산마린시티점</li>
+                        <li>서초점</li>
+                        <li>판교점</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="sns_warp">
+            <div class="sns">
+                <h2>HaagenDazs SNS</h2>
+                <div class="slider4">
+                    <div><img src="/image/sns_01.png"></div>
+                    <div><img src="/image/sns_02.png"></div>
+                    <div><img src="/image/sns_03.png"></div>
+                    <div><img src="/image/sns_04.png"></div>
+                    <div><img src="/image/sns_05.png"></div>
+                    <div><img src="/image/sns_06.png"></div>
+                    <div><img src="/image/sns_07.png"></div>
+                    <div><img src="/image/sns_08.png"></div>
+                    <div><img src="/image/sns_09.png"></div>
+                </div>
+            </div>
+            <script>
+                $(document).ready(function () {
+                    $('.slider4').bxSlider({
+                        auto: true,
+                        autoControls: false,
+                        slideWidth: 480,
+                        maxSlides: 5,
+                        moveSlides: 1,
+                        slideMargin: 30,
+                        pager: false,
+                    });
+                });
+            </script>
+        </div>
+    </main>
+    <script>
+        // 상단 메뉴 (HaagenDazs Menu)
+        const menuBarItems = document.querySelectorAll('.menu_bar li');
+        menuBarItems.forEach(item => {
+            item.addEventListener('click', () => {
+                menuBarItems.forEach(el => el.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+        // 스토어 메뉴 (Store Menu)
+        const storeMenuItems = document.querySelectorAll('.store_menu_bar li');
+        storeMenuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                storeMenuItems.forEach(el => el.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+    </script>
+    <footer>
+        <div class="footer">
+            <h1><a href="/index.html"><img src="/image/logo.png"></a></h1>
+            <div class="footer_warp">
+                <ul class="footer_list_01">
+                    <li>개인정보처리방침</li>
+                    <li>이용약관</li>
+                    <li>이메일무단수집거부</li>
+                </ul>
+                <ul class="footer_list_02">
+                    <li>한국하겐-다즈(주) 대표 : 김미조</li>
+                    <li>주소 : 서울특별시 강남구 테헤란로 311 (역삼동, 아남타워 6층) | 사업자등록번호 : 106-81-28964</li>
+                    <li>통신판매신고 : 강남-8186 | 대표전화 : 02-508-8500 | 개인정보관리책임자 : 김미조 대표</li>
+                </ul>
+                <ul class="footer_list_03">
+                    <li>주식회사 에스와이피글로벌 대표 : 김광용 (사업자정보확인)</li>
+                    <li>주소 : 서울특별시 강남구 봉은사로112길 26길, 5층 502호 (삼성동, 한호빌딩) | 사업자등록번호 : 262-88-00829</li>
+                    <li>통신판매신고 : 2018-서울강남-00403 | 대표전화 : 070-7549-7020 | Email : cs@unitoa | 개인정보관리책임자 : 조현정</li>
+                </ul>
+                <p>© 2025 General Mills. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    <script>
+        /* === IntersectionObserver로 nav shrink 토글하기 ===
+        동작: header가 뷰포트에서 벗어나면 shrink 적용(= menu가 보이기 시작할 때)
+        장점: scroll-snap / 점프 스크롤 / margin/padding 영향 모두 상관 없음
+        */
+        (function () {
+            const nav = document.querySelector('.nav_warp');
+            const header = document.querySelector('header');
+
+            if (!nav || !header) return;
+
+            // 옵저버 콜백: header가 보이지 않으면 shrink 추가
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // header가 화면에 보이면 원래 상태
+                        nav.classList.remove('shrink');
+                    } else {
+                        // header가 화면에서 벗어나면 shrink
+                        nav.classList.add('shrink');
+                    }
+                });
+            }, {
+                root: null,
+                // header가 완전히 사라질 필요 없이 10%라도 밖으로 나가면 shrink
+                threshold: 0.1,
+                // 네비 높이만큼 미리 트리거 하고 싶으면 rootMargin 사용 (예: '-50px 0px 0px 0px')
+                // rootMargin: `-${Math.round(nav.offsetHeight / 2)}px 0px 0px 0px`,
+            });
+
+            io.observe(header);
+
+            // 초기 상태 보정 (페이지 새로고침 시)
+            // (IntersectionObserver가 즉시 콜백을 실행하지 않는 환경에 대비)
+            window.addEventListener('load', () => {
+                // 강제로 체크: header의 bounding rect로 결정
+                const rect = header.getBoundingClientRect();
+                if (rect.bottom <= 0) nav.classList.add('shrink');
+                else nav.classList.remove('shrink');
+            });
+
+            // (옵션) 리사이즈 시 네비 높이 등 변화에 대응
+            window.addEventListener('resize', () => {
+                // 필요 시 rootMargin 재설정하려면 옵저버를 재생성하는 로직을 여기에 넣어도 됨.
+            });
+        })();
+    </script>
+    <script>
+        const sections = document.querySelectorAll('header, .menu, .store_menu, .sns_warp, footer');
+        const dots = document.querySelectorAll('.dot-nav .dot');
+
+        function activateDot(index) {
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const visibleIndex = Array.from(sections).indexOf(entry.target);
+                    activateDot(visibleIndex);
+                }
+            });
+        }, {
+            threshold: 0.4,
+            rootMargin: '-20% 0px -20% 0px'
+        });
+
+        sections.forEach(section => observer.observe(section));
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                sections[i].scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+
+</html>
