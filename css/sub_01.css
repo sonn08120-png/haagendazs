@@ -105,7 +105,7 @@ h2 {
 /* === 스크롤 후 축소 상태 === */
 .nav_warp.shrink {
     height: 80px;
-    background: #fff url("/image/background.png") no-repeat;
+    background: #fff url("../image/background.png") no-repeat;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -218,7 +218,7 @@ main {
     height: 420px;
     display: flex;
     align-items: center;
-    background: #FEF2E3 url("/image/img_bus02.jpg") no-repeat 100% 0;
+    background: #FEF2E3 url("../image/img_bus02.jpg") no-repeat 100% 0;
     padding-left: 230px;
     box-sizing: border-box;
 }
@@ -228,7 +228,7 @@ main {
     height: 420px;
     display: flex;
     align-items: center;
-    background: #ffebc4 url("/image/img_bus03.jpg") no-repeat 0 100%;
+    background: #ffebc4 url("../image/img_bus03.jpg") no-repeat 0 100%;
     padding-left: 800px;
     box-sizing: border-box;
 }
@@ -238,7 +238,7 @@ main {
     height: 420px;
     display: flex;
     align-items: center;
-    background: #FEF2E3 url("/image/img_bus04.jpg") no-repeat 100% 0;
+    background: #FEF2E3 url("../image/img_bus04.jpg") no-repeat 100% 0;
     padding-left: 230px;
     box-sizing: border-box;
 }
