@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/slider.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.js"></script>
 </head>
@@ -27,20 +28,107 @@
                         <a href="index.html"><img src="image/logo.png" class="logo-default"></a>
                         <a href="index.html"><img src="image/logo_02.png" class="logo-scrolled"></a>
                     </h1>
-                    <ul>
-                        <li><a href="">Brand</a></li>
-                        <li><a href="">Menu</a></li>
-                        <li><a href="">Online Shop</a></li>
-                        <li><a href="sub_02.html">Store</a></li>
-                        <li><a href="sub_01.html">B2B</a></li>
+                    <ul class="gnb">
+                        <li>
+                            <p class="gnb_title">Brand</p>
+                            <ul class="dropdown-nav">
+                                <li><a href="">소개</a></li>
+                                <li><a href="">BI</a></li>
+                                <li><a href="">본사</a></li>
+                                <li><a href="">오시는길</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p class="gnb_title">Menu</p>
+                            <ul class="dropdown-nav">
+                                <li><a href="">온라인스토어</a></li>
+                                <li class="dropdown-sub"><a href="">컵 아이스크림</a></li>
+                                <li class="dropdown-sub"><a href="">바 아이스크림</a></li>
+                                <li class="dropdown-sub"><a href="">샌드&콘 아이스크림</a></li>
+                                <li class="dropdown-sub"><a href="">케이크</a></li>
+                                <li><a href="">오프라인 스토어</a></li>
+                                <li class="dropdown-sub"><a href="">크레이션 메뉴</a></li>
+                                <li class="dropdown-sub"><a href="">아이스크림 드링크</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p class="gnb_title">Online Shop</p>
+                            <ul class="dropdown-nav">
+                                <li><a href="">컵 아이스크림</a></li>
+                                <li><a href="">바 아이스크림</a></li>
+                                <li><a href="">샌드&콘 아이스크림</a></li>
+                                <li><a href="">케이크</a></li>
+                                <li><a href="">공지</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p class="gnb_title">Store</p>
+                            <ul class="dropdown-nav">
+                                <li><a href="/sub_02.html">매장정보</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p class="gnb_title">B2B</p>
+                            <ul class="dropdown-nav">
+                                <li><a href="/sub_01.html">비즈니스 파트너</a></li>
+                            </ul>
+                        </li>
                     </ul>
-                    <p><a href="">login</a></p>
+                    <p>
+                        <a href="" class="login">login</a>
+                        <a href="" class="hamburger"><img src="../image/hamburger.png"></a>
+                    </p>
+                    <div class="mobile-menu">
+                        <ul class="gnb-mobile"></ul>
+                    </div>
+                    <div class="menu-overlay"></div>
                 </div>
             </div>
         </div>
+        <script>
+            $(window).on("load", function () {
+                console.log("window loaded - initializing mobile menu copy");
+
+                const gnbHtml = $(".gnb").html();
+                if (!gnbHtml) {
+                    console.warn("복사할 .gnb 내용이 비어있습니다.");
+                } else {
+                    $(".gnb-mobile").html(gnbHtml);
+                    console.log(".gnb -> .gnb-mobile 복사 완료");
+                }
+
+                $(".hamburger").off("click").on("click", function (e) {
+                    e.preventDefault();
+                    $(".mobile-menu, .menu-overlay").toggleClass("active");
+                    $(this).toggleClass("active");
+                    console.log("hamburger clicked, menu active:", $(".mobile-menu").hasClass("active"));
+                });
+
+                $(".menu-overlay").off("click").on("click", function () {
+                    $(".mobile-menu, .menu-overlay, .hamburger").removeClass("active");
+                    console.log("overlay clicked - menu closed");
+                });
+
+                $(document).off("click", ".gnb-mobile .gnb_title").on("click", ".gnb-mobile .gnb_title", function (e) {
+                    e.preventDefault();
+                    console.log("gnb_title clicked:", $(this).text().trim());
+                    const parentLi = $(this).closest("li");
+                    if (parentLi.hasClass("active")) {
+                        parentLi.removeClass("active");
+                        console.log("closing dropdown for:", $(this).text().trim());
+                    } else {
+                        $(".gnb-mobile li.active").removeClass("active");
+                        parentLi.addClass("active");
+                        console.log("opening dropdown for:", $(this).text().trim());
+                    }
+                });
+
+                console.log("gnb-mobile content:", $(".mobile-menu .gnb-mobile").html() ? "exists" : "empty");
+            });
+        </script>
         <div class="video-wrap">
             <iframe class="video"
-                src="https://player.vimeo.com/video/1071707544?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;background=1"
+                src="https://player.vimeo.com/video/1071707544?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;background=1 "
                 frameborder="0"
                 allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                 referrerpolicy="strict-origin-when-cross-origin" title="(HS)하겐다즈_리테일_스틱바영상 tvcf용 0220(mp4)">
@@ -54,7 +142,7 @@
                 <ul class="menu_bar">
                     <li class="active"><span>Cup Icecream</span></li>
                     <li><span>Bar Icecream</span></li>
-                    <li><span>Sand Icecream</span></li>
+                    <li><span>Sand&Cone</span></li>
                     <li><span>Cake</span></li>
                 </ul>
 
@@ -69,18 +157,7 @@
             </div>
         </div>
 
-        <!-- ✅ 모달 -->
-        <div id="modal" class="hidden">
-            <div class="modal_content">
-                <span class="close">&times;</span>
-                <div class="modal_body"></div>
-            </div>
-        </div>
-
         <script>
-            /* ============================
-            카테고리별 이미지 세트
-            ============================ */
             const menuItems = document.querySelectorAll(".menu_bar li");
             const menuList = document.querySelector(".menu_list");
 
@@ -99,23 +176,22 @@
                     "image/bar_04.png",
                     "image/bar_05.png"
                 ],
-                "Sand Icecream": [
+                "Sand&Cone": [
                     "image/sand_01.png",
                     "image/sand_02.png",
-                    "image/sand_03.png",
-                    "image/sand_04.png",
-                    "image/sand_05.png"
+                    "image/cone_01.png",
+                    "image/cone_02.png",
+                    "image/cone_03.png",
                 ],
                 "Cake": [
                     "image/cake_01.png",
                     "image/cake_02.png",
-                    "image/cake_03.png"
+                    "image/cake_03.png",
+                    "image/cake_04.png",
+                    "image/cake_05.png",
                 ]
             };
 
-            /* ============================
-            메뉴 클릭 시 이미지 변경
-            ============================ */
             menuItems.forEach(item => {
                 item.addEventListener("click", () => {
                     menuItems.forEach(i => i.classList.remove("active"));
@@ -131,7 +207,7 @@
                         })
                         .join("");
 
-                    attachModalEvents(); // 새 이미지에도 클릭 이벤트 다시 연결
+                    attachModalEvents();
                 });
             });
         </script>
@@ -152,9 +228,6 @@
                 <p>more<img src="image/circle.png"></p>
             </div>
             <script>
-                /* ============================
-                Store Menu (하단)
-                ============================ */
                 (function () {
                     const storeItems = document.querySelectorAll(".store_menu_bar li");
                     const storeList = document.querySelector(".store_menu_list");
@@ -168,10 +241,9 @@
                             "image/drink_05.png"
                         ],
                         "Dessert": [
-                            "image/sand_01.png",
                             "image/dessert_01.png",
                             "image/dessert_02.png",
-                            "image/sand_01.png"
+                            "image/dessert_03.png",
                         ]
                     };
 
@@ -196,8 +268,8 @@
                     <ul class="store_info_list">
                         <li>여의도점</li>
                         <li>분당미금점</li>
-                        <li>부산마린시티점</li>
                         <li>서초점</li>
+                        <li>부산마린시티점</li>
                         <li>판교점</li>
                     </ul>
                 </div>
@@ -205,7 +277,11 @@
         </div>
         <div class="sns_warp">
             <div class="sns">
-                <h2>HaagenDazs SNS</h2>
+                <div class="slider_controls">
+                    <span id="prev"><img src="image/small_arrow_left.png"></span>
+                    <h2>HaagenDazs News</h2>
+                    <span id="next"><img src="image/small_arrow_right.png"></span>
+                </div>
                 <div class="slider4">
                     <div><img src="image/sns_01.png"></div>
                     <div><img src="image/sns_02.png"></div>
@@ -220,21 +296,62 @@
             </div>
             <script>
                 $(document).ready(function () {
-                    $('.slider4').bxSlider({
+
+                    function getSlideWidth() {
+                        const winW = $(window).width();
+
+                        if (winW <= 480) {
+                            return 300;
+                        } else if (winW <= 768) {
+                            return 340;
+                        } else if (winW <= 1200) {
+                            return 380;
+                        } else if (winW <= 1600) {
+                            return 430;
+                        } else {
+                            return 480;
+                        }
+                    }
+
+                    let slider = $('.slider4').bxSlider({
                         auto: true,
                         autoControls: false,
-                        slideWidth: 480,
+                        slideWidth: getSlideWidth(),
                         maxSlides: 5,
                         moveSlides: 1,
                         slideMargin: 30,
                         pager: false,
+                        controls: false,
+                    });
+
+                    $('#next').on('click', function () {
+                        slider.goToNextSlide();
+                    });
+
+                    $('#prev').on('click', function () {
+                        slider.goToPrevSlide();
+                    });
+
+                    let resizeTimer;
+                    $(window).on('resize', function () {
+                        clearTimeout(resizeTimer);
+                        resizeTimer = setTimeout(function () {
+                            slider.reloadSlider({
+                                auto: true,
+                                autoControls: false,
+                                slideWidth: getSlideWidth(),
+                                maxSlides: 5,
+                                moveSlides: 1,
+                                slideMargin: 30,
+                                pager: false,
+                            });
+                        }, 200);
                     });
                 });
             </script>
         </div>
     </main>
     <script>
-        // 상단 메뉴 (HaagenDazs Menu)
         const menuBarItems = document.querySelectorAll('.menu_bar li');
         menuBarItems.forEach(item => {
             item.addEventListener('click', () => {
@@ -242,7 +359,6 @@
                 item.classList.add('active');
             });
         });
-        // 스토어 메뉴 (Store Menu)
         const storeMenuItems = document.querySelectorAll('.store_menu_bar li');
         storeMenuItems.forEach(item => {
             item.addEventListener('click', () => {
@@ -254,6 +370,7 @@
     <footer>
         <div class="footer">
             <h1><a href="index.html"><img src="image/logo.png"></a></h1>
+            <h1><a href="index.html"><img src="image/logo_02_ft.png"></a></h1>
             <div class="footer_warp">
                 <ul class="footer_list_01">
                     <li>개인정보처리방침</li>
@@ -276,49 +393,34 @@
     </footer>
     <script src="https://player.vimeo.com/api/player.js"></script>
     <script>
-        /* === IntersectionObserver로 nav shrink 토글하기 ===
-        동작: header가 뷰포트에서 벗어나면 shrink 적용(= menu가 보이기 시작할 때)
-        장점: scroll-snap / 점프 스크롤 / margin/padding 영향 모두 상관 없음
-        */
         (function () {
             const nav = document.querySelector('.nav_warp');
             const header = document.querySelector('header');
 
             if (!nav || !header) return;
 
-            // 옵저버 콜백: header가 보이지 않으면 shrink 추가
             const io = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        // header가 화면에 보이면 원래 상태
                         nav.classList.remove('shrink');
                     } else {
-                        // header가 화면에서 벗어나면 shrink
                         nav.classList.add('shrink');
                     }
                 });
             }, {
                 root: null,
-                // header가 완전히 사라질 필요 없이 10%라도 밖으로 나가면 shrink
                 threshold: 0.1,
-                // 네비 높이만큼 미리 트리거 하고 싶으면 rootMargin 사용 (예: '-50px 0px 0px 0px')
-                // rootMargin: `-${Math.round(nav.offsetHeight / 2)}px 0px 0px 0px`,
             });
 
             io.observe(header);
 
-            // 초기 상태 보정 (페이지 새로고침 시)
-            // (IntersectionObserver가 즉시 콜백을 실행하지 않는 환경에 대비)
             window.addEventListener('load', () => {
-                // 강제로 체크: header의 bounding rect로 결정
                 const rect = header.getBoundingClientRect();
                 if (rect.bottom <= 0) nav.classList.add('shrink');
                 else nav.classList.remove('shrink');
             });
 
-            // (옵션) 리사이즈 시 네비 높이 등 변화에 대응
             window.addEventListener('resize', () => {
-                // 필요 시 rootMargin 재설정하려면 옵저버를 재생성하는 로직을 여기에 넣어도 됨.
             });
         })();
     </script>

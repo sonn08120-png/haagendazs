@@ -1,6 +1,5 @@
 .bx-wrapper {
     position: relative;
-    margin-bottom: 60px;
     padding: 0;
     -ms-touch-action: pan-y;
     touch-action: pan-y;
@@ -34,7 +33,7 @@ ul.bxslider {
 
 .bx-wrapper .bx-loading {
     min-height: 50px;
-    background: url(../images/bx_loader.gif) center center no-repeat #fff;
+    background: url(../image/bx_loader.gif) center center no-repeat #fff;
     height: 100%;
     width: 100%;
     position: absolute;
@@ -157,3 +156,29 @@ ul.bxslider {
     font-size: .85em;
     padding: 10px
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
