@@ -1378,18 +1378,6 @@ footer {
         width: 200px;
     }
 
-    .nav_warp {
-        height: 120px;
-    }
-
-    .nav_warp:hover {
-        height: 120px !important;
-    }
-
-    .nav_warp.shrink {
-        height: 120px;
-    }
-
     .gnb-mobile .gnb_title {
         font-size: 16px !important;
     }
