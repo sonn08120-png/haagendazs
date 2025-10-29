@@ -1157,19 +1157,19 @@ footer {
     .menu_bar li:nth-child(2) {
         clip-path: polygon(100% 0, 100% 100%, 0 100%, 5% 0);
         border-top-left-radius: 25px;
-        border-top-right-radius: 5px;
+        border-top-right-radius: 10px;
     }
 
     .menu_bar li:nth-child(3) {
         clip-path: polygon(100% 0, 95% 100%, 0 100%, 0 0);
         border-bottom-right-radius: 25px;
-        border-bottom-left-radius: 5px;
+        border-bottom-left-radius: 10px;
     }
 
     .menu_bar li:nth-child(4) {
         clip-path: polygon(100% 0, 100% 100%, 0 100%, 5% 0);
         border-top-left-radius: 25px;
-        border-top-right-radius: 5px;
+        border-top-right-radius: 10px;
     }
 
     .store_info_list {
@@ -1351,6 +1351,14 @@ footer {
         margin: 80px 0 300px;
     }
 
+    .menu_list img {
+        max-height: 280px;
+    }
+
+    .store_menu_list img {
+        max-height: 200px;
+    }
+
     .footer_list_01 {
         gap: 30px;
         transition: all 0.4s ease;
@@ -1459,6 +1467,33 @@ footer {
     .sns_warp {
         margin-bottom: 110px;
     }
+
+    .menu_list img {
+        max-height: 190px;
+    }
+
+    .store_menu_list img {
+        max-height: 160px;
+    }
+
+    .menu_bar li:nth-child(1) {
+        border-bottom-right-radius: 15px;
+    }
+
+    .menu_bar li:nth-child(2) {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 5px;
+    }
+
+    .menu_bar li:nth-child(3) {
+        border-bottom-right-radius: 15px;
+        border-bottom-left-radius: 5px;
+    }
+
+    .menu_bar li:nth-child(4) {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 5px;
+    }
 }
 
 @media (max-width: 380px) {
@@ -1469,22 +1504,6 @@ footer {
 
     .footer_warp ul>li {
         font-size: 13px;
-    }
-
-    .menu_bar li:nth-child(1), .store_menu_bar li:nth-child(1) {
-        border-bottom-right-radius: 15px;
-    }
-
-    .menu_bar li:nth-child(2), .store_menu_bar li:nth-child(2) {
-        border-top-left-radius: 15px;
-    }
-
-    .menu_bar li:nth-child(3) {
-        border-bottom-right-radius: 15px;
-    }
-
-    .menu_bar li:nth-child(4) {
-        border-top-left-radius: 15px;
     }
 
 }
