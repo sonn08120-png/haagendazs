@@ -1355,25 +1355,6 @@ footer {
         height: 375px;
     }
 
-    .nav_warp:hover .logo-scrolled {
-        height: auto;
-    }
-
-    .nav {
-        height: 80%;
-        align-items: end;
-        transition: none;
-    }
-
-    .nav:hover {
-        height: 96px;
-    }
-
-    .nav p>.hamburger img {
-        top: 75px;
-        transition: all 0.4s ease;
-    }
-
     .mobile-menu {
         width: 200px;
     }
@@ -1466,10 +1447,6 @@ footer {
 }
 
 @media (max-width: 380px) {
-
-    .video-wrap {
-        margin-top: 120px;
-    }
 
     .footer_list_01 {
         gap: 20px;
