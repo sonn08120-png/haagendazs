@@ -1277,7 +1277,7 @@ footer {
     }
 
     .mobile-menu {
-        width: 200px;
+        width: 300px;
     }
 
     .menu_warp {
@@ -1379,27 +1379,23 @@ footer {
     }
 
     .mobile-menu {
-        width: 200px;
+        width: 230px;
     }
 
     .gnb-mobile .gnb_title {
-        font-size: 16px !important;
+        font-size: 18px !important;
     }
 
     .gnb-mobile .dropdown-nav li a {
-        font-size: 14px !important;
+        font-size: 16px !important;
     }
 
     .gnb-mobile .dropdown-nav>.dropdown-sub a {
-        font-size: 13px !important;
+        font-size: 14px !important;
     }
 
     .nav .dropdown-nav li {
         padding: 0;
-    }
-
-    .gnb-mobile .gnb_title {
-        padding: 10px 0;
     }
 
     .menu_bar li span, .store_menu_bar li span {
