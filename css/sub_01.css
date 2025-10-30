@@ -1145,6 +1145,7 @@ a#topBtn img {
 @media (max-width: 515px) {
 
     .visual {
+        margin-top: -30px;
         height: 220px;
     }
 
