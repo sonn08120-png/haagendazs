@@ -964,16 +964,24 @@ a#topBtn img {
 
 @media (max-width: 770px) {
 
+    .nav p>.hamburger img {
+        top: 25px;
+        right: 20px;
+    }
+
+    .nav,
+    .nav_warp,
+    .nav_warp.shrink,
+    .nav_warp:hover {
+        height: 80px;
+    }
+
     .visual {
         height: 280px;
     }
 
     h2 {
         font-size: 30px;
-    }
-
-    .nav p>.hamburger img {
-        right: 20px;
     }
 
     .nav {
@@ -1222,6 +1230,21 @@ a#topBtn img {
 }
 
 @media (max-width: 480px) {
+
+    .nav p>.hamburger img {
+        top: 15px;
+    }
+
+    .nav,
+    .nav_warp,
+    .nav_warp.shrink,
+    .nav_warp:hover {
+        height: 60px;
+    }
+
+    .video-wrap {
+        margin-top: 60px;
+    }
 
     .mobile-menu {
         width: 230px;
