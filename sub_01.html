@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/sub_01.css">
+    <link rel="stylesheet" href="/css/sub_01.css">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <title>Document</title>
 </head>
@@ -23,22 +23,22 @@
                             <p class="gnb_title">Brand</p>
                             <ul class="dropdown-nav">
                                 <li><a href="">소개</a></li>
+                                <li><a href="">연혁</a></li>
                                 <li><a href="">BI</a></li>
-                                <li><a href="">본사</a></li>
-                                <li><a href="">오시는길</a></li>
+                                <li><a href="">매장안내</a></li>
                             </ul>
                         </li>
                         <li>
                             <p class="gnb_title">Menu</p>
                             <ul class="dropdown-nav">
-                                <li><a href="">온라인스토어</a></li>
-                                <li class="dropdown-sub"><a href="">컵 아이스크림</a></li>
-                                <li class="dropdown-sub"><a href="">바 아이스크림</a></li>
-                                <li class="dropdown-sub"><a href="">샌드&콘 아이스크림</a></li>
-                                <li class="dropdown-sub"><a href="">케이크</a></li>
-                                <li><a href="">오프라인 스토어</a></li>
-                                <li class="dropdown-sub"><a href="">크레이션 메뉴</a></li>
-                                <li class="dropdown-sub"><a href="">아이스크림 드링크</a></li>
+                                <li><a href="#online">온라인스토어</a></li>
+                                <li class="dropdown-sub"><a href="#cup">컵 아이스크림</a></li>
+                                <li class="dropdown-sub"><a href="#bar">바 아이스크림</a></li>
+                                <li class="dropdown-sub"><a href="#sand">샌드&콘 아이스크림</a></li>
+                                <li class="dropdown-sub"><a href="#cake">아이스크림 케이크</a></li>
+                                <li><a href="#offline">오프라인 스토어</a></li>
+                                <li class="dropdown-sub"><a href="#creation">크리에이션 메뉴</a></li>
+                                <li class="dropdown-sub"><a href="#drink">아이스크림 드링크</a></li>
                             </ul>
                         </li>
                         <li>
@@ -47,26 +47,26 @@
                                 <li><a href="">컵 아이스크림</a></li>
                                 <li><a href="">바 아이스크림</a></li>
                                 <li><a href="">샌드&콘 아이스크림</a></li>
-                                <li><a href="">케이크</a></li>
-                                <li><a href="">공지</a></li>
+                                <li><a href="">아이스크림 케이크</a></li>
                             </ul>
                         </li>
                         <li>
-                            <p class="gnb_title">Store</p>
+                            <p class="gnb_title">News</p>
                             <ul class="dropdown-nav">
-                                <li><a href="sub_02.html">매장정보</a></li>
+                                <li><a>이벤트</a></li>
+                                <li><a>공지사항</a></li>
                             </ul>
                         </li>
                         <li>
                             <p class="gnb_title">B2B</p>
                             <ul class="dropdown-nav">
-                                <li><a href="sub_01.html">비즈니스 파트너</a></li>
+                                <li><a>비즈니스 파트너</a></li>
                             </ul>
                         </li>
                     </ul>
                     <p>
                         <a href="" class="login">login</a>
-                        <a href="" class="hamburger"><img src="image/hamburger.png"></a>
+                        <a href="" class="hamburger"><img src="../image/hamburger.png"></a>
                     </p>
                     <div class="mobile-menu">
                         <ul class="gnb-mobile"></ul>
@@ -117,12 +117,290 @@
             });
         </script>
         <div class="visual">
-            <h2>HaagenDazs B2B</h2>
+            <h2>HaagenDazs Menu</h2>
             <img src="image/visual_01.png">
         </div>
     </header>
     <main>
+        <div class="store_sellect">
+            <ul class="store_sellect_warp">
+                <li class="online active" id="online"><a href="#">Online Store</a></li>
+                <li class="offline" id="offline"><a href="#">Offline Store</a></li>
+            </ul>
+        </div>
+
+        <div class="Menu_sellect online_category">
+            <ul class="Menu_sellect_warp">
+                <li class="cup_menu active"><a href="#">Cup <p>Icecream</p></a></li>
+                <li class="bar_menu"><a href="#">Bar <p>Icecream</p></a></li>
+                <li class="sand_menu"><a href="#">Sand&Cone <p>Icecream</p></a></li>
+                <li class="cake_menu"><a href="#"><p>Icecream</p> Cake</a></li>
+            </ul>
+        </div>
+
+        <div class="Menu_sellect offline_category" style="display: none;">
+            <ul class="Menu_sellect_warp">
+                <li class="creation_menu active"><a href="#">Creation Menu</a></li>
+                <li class="drink_menu"><a href="#">Icecream Drink</a></li>
+            </ul>
+        </div>
+
+        <div class="Menu_list online_menu">
+            <div class="menu_list_warp">
+                <ul class="cup_Icecream_menu" id="cup">
+                    <li><a href="#"><img src="image/cup_04.png">
+                            <p>쿠키 앤 초콜릿 [파인트]</p>
+                        </a></li>
+                    <li><a href="#"><img src="image/cup_05.png">
+                            <p>쿠키 앤 그린티 [파인트]</p>
+                        </a></li>
+                    <li class="cup_small"><a href="#"><img src="image/cup_01.png">
+                            <p>쿠키 앤 그린티 [미니컵]</p>
+                        </a></li>
+                    <li class="cup_small"><a href="#"><img src="image/cup_02.png">
+                            <p>마드리드 츄로스 [미니컵]</p>
+                        </a></li>
+                    <li class="cup_small"><a href="#"><img src="image/cup_03.png">
+                            <p>로마 티라미수 [미니컵]</p>
+                        </a></li>
+                    <li><a href="#"><img src="image/cup_08.png">
+                            <p>마드리드 츄로스 [파인트]</p>
+                        </a></li>
+                    <li><a href="#"><img src="image/cup_07.png">
+                            <p>로마 티라미수 [파인트]</p>
+                        </a></li>
+                    <li><a href="#"><img src="image/cup_06.png">
+                            <p>블루베리 앤 크림 [파인트]</p>
+                        </a></li>
+                </ul>
+                <ul class="bar_Icecream_menu" id="bar">
+                    <li><a href="#"><img src="image/bar_01.png">
+                            <p>쿠키 앤 그린티 [스틱바]</p>
+                        </a></li>
+                    <li><a href="#"><img src="image/bar_02.png">
+                            <p>로마 티라미수 [스틱바]</p>
+                        </a></li>
+                    <li><a href="#"><img src="image/bar_03.png">
+                            <p>그린티 앤 아몬드 [스틱바]</p>
+                        </a></li>
+                    <li><a href="#"><img src="image/bar_04.png">
+                            <p>스트로베리 앤 크림 [스틱바]</p>
+                        </a></li>
+                    <li><a href="#"><img src="image/bar_05.png">
+                            <p>초콜릿 촉 아몬드 [스틱바]</p>
+                        </a></li>
+                    <li><a href="#"><img src="image/bar_06.png">
+                            <p>쿠키 앤 크림 [스틱바]</p>
+                        </a></li>
+                    <li><a href="#"><img src="image/bar_07.png">
+                            <p>마카다미아넛 브리틀 [스틱바]</p>
+                        </a></li>
+                    <li><a href="#"><img src="image/bar_08.png">
+                            <p>바닐라 카라멜 [스틱바]</p>
+                        </a></li>
+                </ul>
+                <ul class="sand_Cone_Icecream_menu" id="sand">
+                    <li><a href="#"><img src="image/cone_01.png">
+                            <p>바닐라 카라멜 아몬드 크런치 [콘]</p>
+                        </a></li>
+                    <li><a href="#"><img src="image/cone_02.png">
+                            <p>그린티 크런치 [콘]</p>
+                        </a></li>
+                    <li><a href="#"><img src="image/cone_03.png">
+                            <p>초콜릿 촉 아몬드 크런치 [콘]</p>
+                        </a></li>
+                    <li class="img_small"><a href="#"><img src="image/sand_01.png">
+                            <p>리치 스트로베리 3개입 [샌드]</p>
+                        </a></li>
+                    <li class="img_small"><a href="#"><img src="image/sand_02.png">
+                            <p>말차베리 3개입 [샌드]</p>
+                        </a></li>
+                    <li class="img_small"><a href="#"><img src="image/sand_03.png">
+                            <p>리치카라멜 3개입 [샌드]</p>
+                        </a></li>
+                </ul>
+                <ul class="icecream_Cake_menu" id="cake">
+                    <li><a href="#"><img src="image/cake_01.png">
+                            <p>더블 쇼콜라 [아이스크림 케이크]</p>
+                        </a></li>
+                    <li><a href="#"><img src="image/cake_02.png">
+                            <p>미니블랑 [아이스크림 케이크]</p>
+                        </a></li>
+                    <li><a href="#"><img src="image/cake_03.png">
+                            <p>스위트러브 [아이스크림 케이크]</p>
+                        </a></li>
+                    <li><a href="#"><img src="image/cake_05.png">
+                            <p>더블 쇼콜라 [아이스크림 케이크]</p>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="Menu_list offline_menu" style="display: none;">
+            <div class="menu_list_warp">
+                <ul class="creation_menu_list" id="creation">
+                    <li class="img_small"><a href="#"><img src="image/dessert_01.png">
+                            <p>오프라인 아이스크림 드링크 A</p>
+                        </a></li>
+                    <li class="img_small"><a href="#"><img src="image/dessert_02.png">
+                            <p>오프라인 아이스크림 드링크 A</p>
+                        </a></li>
+                    <li><a href="#"><img src="image/dessert_03.png">
+                            <p>오프라인 아이스크림 드링크 A</p>
+                        </a></li>
+                </ul>
+                <ul class="drink_menu_list" id="drink">
+                    <li><a href="#"><img src="image/drink_01.png">
+                            <p>오프라인 크리에이티브 메뉴 A</p>
+                        </a></li>
+                    <li><a href="#"><img src="image/drink_03.png">
+                            <p>오프라인 크리에이티브 메뉴 A</p>
+                        </a></li>
+                    <li class="img_small"><a href="#"><img src="image/drink_04.png">
+                            <p>오프라인 크리에이티브 메뉴 A</p>
+                        </a></li>
+                    <li class="img_small"><a href="#"><img src="image/drink_05.png">
+                            <p>오프라인 크리에이티브 메뉴 A</p>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
     </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const storeBtns = document.querySelectorAll(".store_sellect_warp li");
+            const onlineCategory = document.querySelector(".online_category");
+            const offlineCategory = document.querySelector(".offline_category");
+            const onlineMenu = document.querySelector(".online_menu");
+            const offlineMenu = document.querySelector(".offline_menu");
+
+            const onlineMenus = onlineMenu.querySelectorAll(".menu_list_warp ul");
+            const offlineMenus = offlineMenu.querySelectorAll(".menu_list_warp ul");
+
+            const hideAllMenus = () => {
+                onlineMenus.forEach(menu => menu.style.display = "none");
+                offlineMenus.forEach(menu => menu.style.display = "none");
+            };
+
+            const showOnlineMenu = (menuClass) => {
+                onlineCategory.style.display = "block";
+                offlineCategory.style.display = "none";
+                onlineMenu.style.display = "block";
+                offlineMenu.style.display = "none";
+                hideAllMenus();
+                onlineMenu.querySelector(menuClass).style.display = "flex";
+                storeBtns.forEach(b => b.classList.remove("active"));
+                document.querySelector(".online").classList.add("active");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            };
+
+            const showOfflineMenu = (menuClass) => {
+                onlineCategory.style.display = "none";
+                offlineCategory.style.display = "block";
+                onlineMenu.style.display = "none";
+                offlineMenu.style.display = "block";
+                hideAllMenus();
+                offlineMenu.querySelector(menuClass).style.display = "flex";
+                storeBtns.forEach(b => b.classList.remove("active"));
+                document.querySelector(".offline").classList.add("active");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            };
+
+            const handleHashChange = () => {
+                const hash = window.location.hash;
+                switch (hash) {
+                    case "#bar":
+                        showOnlineMenu(".bar_Icecream_menu");
+                        break;
+                    case "#sand":
+                        showOnlineMenu(".sand_Cone_Icecream_menu");
+                        break;
+                    case "#cake":
+                        showOnlineMenu(".icecream_Cake_menu");
+                        break;
+                    case "#cup":
+                    case "#online":
+                        showOnlineMenu(".cup_Icecream_menu");
+                        break;
+                    case "#creation":
+                        showOfflineMenu(".creation_menu_list");
+                        break;
+                    case "#drink":
+                        showOfflineMenu(".drink_menu_list");
+                        break;
+                    case "#offline":
+                        showOfflineMenu(".creation_menu_list");
+                        break;
+                    default:
+                        showOnlineMenu(".cup_Icecream_menu");
+                }
+            };
+
+            handleHashChange();
+
+            window.addEventListener("hashchange", handleHashChange);
+
+            document.querySelectorAll('.offline_category a').forEach(link => {
+                link.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    const href = link.getAttribute("href");
+                    if (href === "#creation") {
+                        showOfflineMenu(".creation_menu_list");
+                        window.location.hash = "#creation";
+                    } else if (href === "#drink") {
+                        showOfflineMenu(".drink_menu_list");
+                        window.location.hash = "#drink";
+                    }
+                });
+            });
+            storeBtns.forEach(btn => {
+                btn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    storeBtns.forEach(b => b.classList.remove("active"));
+                    btn.classList.add("active");
+
+                    if (btn.classList.contains("online")) {
+                        showOnlineMenu(".cup_Icecream_menu");
+                    } else {
+                        showOfflineMenu(".creation_menu_list");
+                    }
+                });
+            });
+
+            const onlineBtns = onlineCategory.querySelectorAll("li");
+            onlineBtns.forEach(btn => {
+                btn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    onlineBtns.forEach(b => b.classList.remove("active"));
+                    btn.classList.add("active");
+
+                    if (btn.classList.contains("cup_menu")) {
+                        showOnlineMenu(".cup_Icecream_menu");
+                    } else if (btn.classList.contains("bar_menu")) {
+                        showOnlineMenu(".bar_Icecream_menu");
+                    } else if (btn.classList.contains("sand_menu")) {
+                        showOnlineMenu(".sand_Cone_Icecream_menu");
+                    } else if (btn.classList.contains("cake_menu")) {
+                        showOnlineMenu(".icecream_Cake_menu");
+                    }
+                });
+            });
+
+            const offlineBtns = offlineCategory.querySelectorAll("li");
+            offlineBtns.forEach(btn => {
+                btn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    offlineBtns.forEach(b => b.classList.remove("active"));
+                    btn.classList.add("active");
+
+                    if (btn.classList.contains("creation_menu")) {
+                        showOfflineMenu(".creation_menu_list");
+                    } else if (btn.classList.contains("drink_menu")) {
+                        showOfflineMenu(".drink_menu_list");
+                    }
+                });
+            });
+        });
+    </script>
     <footer>
         <div class="footer">
             <h1><a href="index.html"><img src="image/logo_01.png"></a></h1>
@@ -146,7 +424,27 @@
                 <p>© 2025 General Mills. All Rights Reserved.</p>
             </div>
         </div>
+        <a id="topBtn" href="#"><img src="image/arrow_top.png">
+            <p>Top</p>
+        </a>
     </footer>
+    <script>
+        $(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 250) {
+                    $('#topBtn').fadeIn();
+                } else {
+                    $('#topBtn').fadeOut();
+                }
+            });
+            $("#topBtn").click(function () {
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 400);
+                return false;
+            });
+        });
+    </script>
     <script>
         (function () {
             const nav = document.querySelector('.nav_warp');

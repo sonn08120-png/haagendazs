@@ -33,22 +33,22 @@
                             <p class="gnb_title">Brand</p>
                             <ul class="dropdown-nav">
                                 <li><a href="">소개</a></li>
+                                <li><a href="">연혁</a></li>
                                 <li><a href="">BI</a></li>
-                                <li><a href="">본사</a></li>
-                                <li><a href="">오시는길</a></li>
+                                <li><a href="">매장안내</a></li>
                             </ul>
                         </li>
                         <li>
                             <p class="gnb_title">Menu</p>
                             <ul class="dropdown-nav">
-                                <li><a href="">온라인스토어</a></li>
-                                <li class="dropdown-sub"><a href="">컵 아이스크림</a></li>
-                                <li class="dropdown-sub"><a href="">바 아이스크림</a></li>
-                                <li class="dropdown-sub"><a href="">샌드&콘 아이스크림</a></li>
-                                <li class="dropdown-sub"><a href="">케이크</a></li>
-                                <li><a href="">오프라인 스토어</a></li>
-                                <li class="dropdown-sub"><a href="">크레이션 메뉴</a></li>
-                                <li class="dropdown-sub"><a href="">아이스크림 드링크</a></li>
+                                <li><a href="sub_01.html#online">온라인스토어</a></li>
+                                <li class="dropdown-sub"><a href="sub_01.html#cup">컵 아이스크림</a></li>
+                                <li class="dropdown-sub"><a href="sub_01.html#bar">바 아이스크림</a></li>
+                                <li class="dropdown-sub"><a href="sub_01.html#sand">샌드&콘 아이스크림</a></li>
+                                <li class="dropdown-sub"><a href="sub_01.html#cake">아이스크림 케이크</a></li>
+                                <li><a href="sub_01.html#offline">오프라인 스토어</a></li>
+                                <li class="dropdown-sub"><a href="sub_01.html#creation">크리에이션 메뉴</a></li>
+                                <li class="dropdown-sub"><a href="sub_01.html#drink">아이스크림 드링크</a></li>
                             </ul>
                         </li>
                         <li>
@@ -57,20 +57,20 @@
                                 <li><a href="">컵 아이스크림</a></li>
                                 <li><a href="">바 아이스크림</a></li>
                                 <li><a href="">샌드&콘 아이스크림</a></li>
-                                <li><a href="">케이크</a></li>
-                                <li><a href="">공지</a></li>
+                                <li><a href="">아이스크림 케이크</a></li>
                             </ul>
                         </li>
                         <li>
-                            <p class="gnb_title">Store</p>
+                            <p class="gnb_title">News</p>
                             <ul class="dropdown-nav">
-                                <li><a href="sub_02.html">매장정보</a></li>
+                                <li><a>이벤트</a></li>
+                                <li><a>공지사항</a></li>
                             </ul>
                         </li>
                         <li>
                             <p class="gnb_title">B2B</p>
                             <ul class="dropdown-nav">
-                                <li><a href="sub_01.html">비즈니스 파트너</a></li>
+                                <li><a>비즈니스 파트너</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -187,7 +187,6 @@
                     "image/cake_01.png",
                     "image/cake_02.png",
                     "image/cake_03.png",
-                    "image/cake_04.png",
                     "image/cake_05.png",
                 ]
             };
@@ -390,7 +389,25 @@
                 <p>© 2025 General Mills. All Rights Reserved.</p>
             </div>
         </div>
+        <a id="topBtn" href="#"><img src="image/arrow_top.png"><p>Top</p></a>
     </footer>
+    <script>
+        $(function () { // 보이기 | 숨기기
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 250) { //250 넘으면 버튼이 보여짐니다. 
+                    $('#topBtn').fadeIn();
+                } else {
+                    $('#topBtn').fadeOut();
+                }
+            }); // 버튼 클릭시 
+            $("#topBtn").click(function () {
+                $('html, body').animate({
+                    scrollTop: 0 // 0 까지 animation 이동합니다. 
+                }, 400); // 속도 400 
+                return false;
+            });
+        });
+    </script>
     <script src="https://player.vimeo.com/api/player.js"></script>
     <script>
         (function () {
