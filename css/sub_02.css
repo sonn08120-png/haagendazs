@@ -810,7 +810,7 @@ footer {
     .nav_warp,
     .nav_warp.shrink,
     .nav_warp:hover {
-        height: 80px;
+        height: 80px !important;
     }
 
     .nav {
