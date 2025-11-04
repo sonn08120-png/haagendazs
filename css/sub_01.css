@@ -1,7 +1,6 @@
 @charset "UTF-8";
 @import url("font.css");
 
-
 * {
     margin: 0;
     padding: 0;
@@ -36,6 +35,11 @@ body {
     -ms-overflow-style: none;
 }
 
+html,
+body {
+    overflow-x: hidden;
+}
+
 header {
     position: relative;
     width: 100%;
@@ -52,39 +56,29 @@ header {
 .visual h2 {
     position: absolute;
     left: 50%;
-    top: 60%;
+    top: 55%;
     transform: translate(-50%, -50%);
     color: #fff;
     font-size: 50px;
 }
 
 .visual img {
-    aspect-ratio: 16 / 3;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* ---------- Nav ---------- */
 .nav_warp {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 150px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.4s ease;
+    transition: all .4s ease;
     z-index: 10;
 }
 
@@ -114,13 +108,13 @@ header {
 .nav_warp .logo-default {
     display: block;
     height: 90px;
-    transition: all 0.4s ease;
+    transition: all .4s ease;
 }
 
 .nav_warp .logo-scrolled {
     display: none;
     height: 65px;
-    transition: all 0.4s ease;
+    transition: all .4s ease;
 }
 
 .gnb {
@@ -128,7 +122,7 @@ header {
 }
 
 .gnb_title {
-    padding: 0 60px 0 60px;
+    padding: 0 60px;
 }
 
 .nav a,
@@ -136,8 +130,8 @@ header {
 .gnb p {
     color: #fff;
     font-family: "ns_regular";
-    font-size: 20px;
-    transition: all 0.4s ease;
+    font-size: 18px;
+    transition: all .4s ease;
 }
 
 .hamburger {
@@ -148,12 +142,8 @@ header {
     display: none;
 }
 
-
-
-
 .nav ul.gnb {
     display: flex;
-    list-style: none;
     align-items: center;
     height: 100%;
 }
@@ -169,14 +159,14 @@ header {
     font-size: 16px;
     font-weight: 500;
     color: #650A30;
-    text-decoration: none;
     display: inline-block;
 }
 
+/* Hover 시 데스크톱 드롭다운 */
 .nav_warp:hover {
-    height: 80px;
+    height: 100px;
     background: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
 }
 
 .nav_warp:hover .nav a,
@@ -197,7 +187,7 @@ header {
     width: 150px;
     height: auto;
     object-fit: contain;
-    transition: all 0.4s ease;
+    transition: all .4s ease;
 }
 
 .nav .dropdown-nav {
@@ -208,7 +198,7 @@ header {
     background: #fff;
     min-width: 180px;
     border-radius: 0 0 10px 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
     z-index: 100;
 }
 
@@ -224,8 +214,7 @@ header {
     display: block;
     padding: 12px 16px;
     color: #333;
-    text-decoration: none;
-    transition: background 0.3s;
+    transition: background .3s;
 }
 
 .nav .dropdown-nav li a:hover {
@@ -250,18 +239,11 @@ header {
     font-size: 16px;
 }
 
-
-
-
-
-
-
-
-
+/* 스크롤 축소 상태 */
 .nav_warp.shrink {
     height: 80px;
     background: #fff url("../image/background.png") no-repeat;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
 }
 
 .nav_warp.shrink .nav a,
@@ -285,24 +267,13 @@ header {
 .nav_warp.shrink h1 img {
     width: 150px;
     height: auto;
-    transition: transform 0.4s ease;
+    transition: transform .4s ease;
 }
 
-
-
-
-
-
-
-
-
-
-
-
+/* ---------- Tabs ---------- */
 .store_sellect {
     position: relative;
     width: 100%;
-    transition: all 0.4s ease;
 }
 
 .store_sellect_warp {
@@ -318,8 +289,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
 }
 
 .store_sellect_warp li {
@@ -330,38 +300,23 @@ header {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: all 0.4s ease;
 }
 
 .store_sellect_warp li a {
     color: #650A30;
-    transition: all 0.4s ease;
 }
 
 .store_sellect_warp li.active {
     background: #650A30;
-    transition: all 0.4s ease;
 }
 
 .store_sellect_warp li.active a {
     color: #fff;
-    transition: all 0.4s ease;
 }
-
-
-
-
-
-
-
-
-
-
 
 .Menu_sellect {
     width: 100%;
-    margin: 100px 0 80px 0;
-    transition: all 0.4s ease;
+    margin: 100px 0 80px;
 }
 
 .Menu_sellect_warp {
@@ -370,40 +325,29 @@ header {
     justify-content: center;
     align-items: end;
     gap: 80px;
+    height: 30px;
     margin: 0 auto;
-    transition: all 0.4s ease;
 }
 
-.Menu_sellect_warp a, 
+.Menu_sellect_warp a,
 .Menu_sellect_warp a p {
     font-size: 18px;
-    transition: all 0.4s ease;
     gap: 7px;
     display: flex;
     align-items: center;
 }
 
-.Menu_sellect_warp li.active a, 
+.Menu_sellect_warp li.active a,
 .Menu_sellect_warp li.active a p {
     color: #650A30;
     font-size: 20px;
     font-family: "ns_semibold";
-    transition: all 0.4s ease;
 }
 
-
-
-
-
-
-
-
-
-
+/* ---------- Menu cards ---------- */
 .menu_list_warp {
     width: 1440px;
     margin: 0 auto;
-    transition: all 0.4s ease;
 }
 
 .menu_list_warp ul {
@@ -413,7 +357,6 @@ header {
     justify-content: center;
     align-items: center;
     margin-bottom: 150px;
-    transition: all 0.4s ease;
 }
 
 .cup_Icecream_menu li,
@@ -422,28 +365,28 @@ header {
     width: 300px;
     height: 430px;
     background: #fff;
-    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 0 15px rgba(0, 0, 0, .08);
     border-radius: 30px;
     display: flex;
     justify-content: end;
     align-items: center;
     flex-direction: column;
     gap: 30px;
-    transition: transform 0.2s ease;
+    transition: transform .2s ease;
 }
 
 .icecream_Cake_menu li {
     width: 300px;
     height: 320px;
     background: #fff;
-    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 0 15px rgba(0, 0, 0, .08);
     border-radius: 30px;
     display: flex;
     justify-content: end;
     align-items: center;
     flex-direction: column;
     gap: 30px;
-    transition: transform 0.2s ease;
+    transition: transform .2s ease;
 }
 
 .creation_menu_list li,
@@ -451,14 +394,14 @@ header {
     width: 300px;
     height: 380px;
     background: #fff;
-    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 0 15px rgba(0, 0, 0, .08);
     border-radius: 30px;
     display: flex;
     justify-content: end;
     align-items: center;
     flex-direction: column;
     gap: 30px;
-    transition: transform 0.2s ease;
+    transition: transform .2s ease;
 }
 
 .menu_list_warp ul li:hover {
@@ -473,18 +416,14 @@ header {
     gap: 40px;
     text-align: center;
     margin-bottom: 40px;
-    transition: all 0.4s ease;
 }
 
 .menu_list_warp ul li p {
-    width: 260px;
-    font-size: 16px;
-    display: inline-block;
     width: 200px;
+    font-size: 16px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    transition: all 0.4s ease;
 }
 
 .menu_list_warp ul li img {
@@ -492,35 +431,22 @@ header {
     height: auto;
     max-height: 270px;
     object-fit: contain;
-    transition: all 0.4s ease;
 }
 
 .img_small img {
     max-height: 230px !important;
 }
 
-
-
-
-
-
-
-
-
-
-
-
+/* ---------- Footer ---------- */
 footer {
     width: 100vw;
-    height: auto;
     background: #35081D;
-    scroll-snap-align: start;
     position: relative;
 }
 
 .footer {
     width: 1440px;
-    padding: 50px 0 50px 0;
+    padding: 50px 0;
     margin: 0 auto;
     display: flex;
 }
@@ -567,10 +493,7 @@ footer {
     gap: 6px;
 }
 
-
-
-
-
+/* Top 버튼 */
 #topBtn {
     position: fixed;
     width: 70px;
@@ -580,47 +503,41 @@ footer {
     right: 5%;
     bottom: 5%;
     z-index: 9999;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     gap: 5px;
     align-items: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    transition: all 0.4s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .15);
+}
+
+#topBtn.visible {
+    display: flex;
 }
 
 #topBtn p {
     color: #fff;
     font-family: "ns_regular";
     font-size: 16px;
-    transition: all 0.4s ease;
 }
 
 a#topBtn img {
     width: 16px;
     height: auto;
-    transition: all 0.4s ease;
 }
 
-
-
-
-
-
-
-
-@media (max-width: 1550px) {
+/* ---------- Responsive ---------- */
+@media (max-width:1550px) {
 
     .nav,
     .Menu_sellect_warp,
     .menu_list_warp,
     .footer {
         width: 90%;
-        transition: all 0.4s ease;
     }
 }
 
-@media (max-width: 1450px) {
+@media (max-width:1450px) {
     .nav {
         height: 130px;
     }
@@ -630,20 +547,29 @@ a#topBtn img {
     }
 }
 
-@media (max-width: 1320px) {
+@media (max-width:1320px) {
     .nav_warp .logo-default {
         height: 80px;
     }
 
     .gnb_title {
-        padding: 0 40px 0 40px;
+        padding: 0 40px;
     }
 }
 
+@media (max-width:1090px) {
+    .menu_list_warp {
+        width: 83%;
+    }
 
-@media (max-width: 1060px) {
+    .menu_list_warp ul {
+        gap: 40px 40px;
+    }
+}
+
+@media (max-width:1060px) {
     .gnb_title {
-        padding: 0 30px 0 30px;
+        padding: 0 30px;
     }
 
     .gnb p {
@@ -651,7 +577,7 @@ a#topBtn img {
     }
 }
 
-@media (max-width: 1023px) {
+@media (max-width:1023px) {
     .nav {
         height: 100px;
         position: relative;
@@ -660,7 +586,6 @@ a#topBtn img {
 
     .nav ul.gnb {
         display: none;
-        transition: all 0.4s ease;
     }
 
     .nav p>a:first-child {
@@ -678,15 +603,13 @@ a#topBtn img {
         width: 32px;
         height: 32px;
         z-index: 300;
-        transition: transform 0.3s ease;
+        transition: transform .3s ease;
     }
 
     .hamburger.active img {
         content: url("../image/close.png");
-        transform: rotate(180deg);
-        transform: scale(0.9);
+        transform: rotate(180deg) scale(.9);
         z-index: 10000000 !important;
-        transition: all 0.4s ease;
     }
 
     .nav_warp {
@@ -695,13 +618,12 @@ a#topBtn img {
         height: 100px;
         background: #FEF2E3;
         z-index: 10;
-        transition: all 0.4s ease;
     }
 
     .nav_warp.shrink {
         height: 100px;
         background: #FEF2E3;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
     }
 
     .nav_warp:hover {
@@ -728,8 +650,6 @@ a#topBtn img {
         color: #650A30 !important;
     }
 
-
-
     .visual {
         height: 300px;
     }
@@ -742,58 +662,48 @@ a#topBtn img {
         font-size: 33px;
         color: #650A30;
         position: relative;
-        width: auto;
         display: flex;
         justify-content: center;
     }
 
     .Menu_sellect {
-        margin: 60px 0 50px 0;
+        margin: 60px 0 50px;
     }
 
     .Menu_sellect_warp {
         gap: 50px;
     }
 
-
     .store_sellect_warp {
-    width: 550px;
-    height: 70px;
-    top: -120px;
-}
+        width: 550px;
+        height: 70px;
+        top: -120px;
+    }
 
-.store_sellect_warp li {
-    width: 250px;
-    height: 50px;
-    border-radius: 36px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
+    .store_sellect_warp li {
+        width: 250px;
+        height: 50px;
+    }
 
-.store_sellect_warp li.active a,
-.store_sellect_warp li.active a p {
-    font-size: 18px;
-}
+    .store_sellect_warp li a,
+    .store_sellect_warp li a p {
+        font-size: 18px;
+    }
 
-.store_sellect_warp li a,
-.store_sellect_warp li a p {
-    font-size: 18px;
-}
+    .store_sellect_warp li.active a,
+    .store_sellect_warp li.active a p {
+        font-size: 18px;
+    }
 
-.Menu_sellect_warp li.active a,
-.Menu_sellect_warp li.active a p {
-    font-size: 18px;
-}
+    .Menu_sellect_warp li.active a,
+    .Menu_sellect_warp li.active a p {
+        font-size: 18px;
+    }
 
-.Menu_sellect_warp li a,
-.Menu_sellect_warp li a p {
-    font-size: 16px;
-}
-
-
-
+    .Menu_sellect_warp li a,
+    .Menu_sellect_warp li a p {
+        font-size: 16px;
+    }
 
     .footer h1:nth-child(1) {
         display: none;
@@ -803,11 +713,7 @@ a#topBtn img {
         display: inline-block;
     }
 
-
-
-
-
-
+    /* 모바일 메뉴 */
     .mobile-menu {
         display: block;
         position: fixed;
@@ -816,12 +722,11 @@ a#topBtn img {
         width: 300px;
         height: 100vh;
         background: #fff;
-        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+        box-shadow: -4px 0 20px rgba(0, 0, 0, .1);
         z-index: 9999 !important;
-        transition: right 0.4s ease;
         overflow-y: auto;
         padding: 100px 20px;
-        transition: all 0.4s ease;
+        transition: right .4s ease;
     }
 
     .mobile-menu.active {
@@ -834,11 +739,10 @@ a#topBtn img {
         left: 0;
         width: 100%;
         height: 100vh;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, .5);
         opacity: 0;
         visibility: hidden;
-        transition: all 0.4s ease;
-        z-index: 150;
+        transition: all .4s ease;
         z-index: 9998 !important;
     }
 
@@ -871,30 +775,20 @@ a#topBtn img {
     .gnb-mobile .dropdown-nav {
         display: none;
         position: static;
-        top: auto;
-        left: auto;
         background: transparent;
         box-shadow: none;
         margin: 0;
         padding-left: 16px;
-        overflow: visible;
     }
 
     .gnb-mobile li.active>.dropdown-nav {
         display: block !important;
-        max-height: none;
-        visibility: visible;
-        opacity: 1;
-        transform: none;
-    }
-
-    .gnb-mobile li.active>.dropdown-nav {
         background: #fff;
         padding: 8px 12px;
     }
 
     .nav .dropdown-nav li {
-        padding: 3px 0 3px 0;
+        padding: 3px 0;
     }
 
     .gnb-mobile .dropdown-nav li a {
@@ -912,7 +806,7 @@ a#topBtn img {
     .gnb-mobile .gnb_title::after {
         content: "▸";
         font-size: 14px;
-        transition: transform 0.3s;
+        transition: transform .3s;
         color: #650A30;
     }
 
@@ -938,10 +832,9 @@ a#topBtn img {
     }
 }
 
-@media (max-width: 870px) {
-
+@media (max-width:870px) {
     .gnb_title {
-        padding: 0 20px 0 20px;
+        padding: 0 20px;
     }
 
     #topBtn {
@@ -951,19 +844,15 @@ a#topBtn img {
     }
 
     #topBtn p {
-        color: #fff;
-        font-family: "ns_regular";
         font-size: 16px;
     }
 
     a#topBtn img {
         width: 15px;
-        height: auto;
     }
 }
 
-@media (max-width: 770px) {
-
+@media (max-width:770px) {
     .nav p>.hamburger img {
         top: 25px;
         right: 20px;
@@ -984,27 +873,14 @@ a#topBtn img {
         font-size: 30px;
     }
 
-    .nav {
-        position: relative;
-        align-items: center;
-    }
-
-
     .Menu_sellect {
-        margin: 60px 0 50px 0;
+        margin: 60px 0 50px;
     }
-
-
-
-
-
-
 
     .menu_list_warp ul li a {
         gap: 30px;
         margin-bottom: 30px;
     }
-
 
     .store_sellect_warp {
         width: 450px;
@@ -1012,28 +888,10 @@ a#topBtn img {
         top: -110px;
     }
 
-    .store_sellect_warp li.active a {
-        font-size: 16px;
-    }
-
-    .store_sellect_warp li a {
-        font-size: 16px;
-    }
-
     .store_sellect_warp li {
         width: 200px;
         height: 45px;
-        border-radius: 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
     }
-
-
-
-
-
 
     .Menu_sellect_warp {
         gap: 70px;
@@ -1049,35 +907,25 @@ a#topBtn img {
         display: none;
     }
 
-
-
-
-
     .menu_list_warp ul {
         flex-wrap: wrap;
         gap: 20px;
     }
 
     .menu_list_warp ul li {
-        width: calc(45% - 10px);
+        width: calc(50% - 10px);
     }
 
     .menu_list_warp ul li p {
         width: 220px;
         font-size: 14px;
-        transition: all 0.4s ease;
     }
 
     .menu_list_warp ul li img {
         width: auto;
         max-height: 170px;
         max-width: 160px;
-        transition: all 0.4s ease;
     }
-
-
-
-
 
     .cup_Icecream_menu li,
     .bar_Icecream_menu li,
@@ -1109,15 +957,6 @@ a#topBtn img {
         max-height: 130px !important;
     }
 
-
-
-
-
-
-
-
-
-
     .footer {
         flex-direction: column;
     }
@@ -1129,24 +968,18 @@ a#topBtn img {
     .footer_warp {
         margin-left: 0;
     }
-
-    .slider_controls {
-        gap: 40px;
-    }
 }
 
-
-@media (max-width: 600px) {
+@media (max-width:600px) {
     .mobile-menu {
         width: 300px;
     }
 }
 
-@media (max-width: 515px) {
-
+@media (max-width:515px) {
     .visual {
-        margin-top: -45px;
         height: 220px;
+        margin-top: -30px;
     }
 
     .visual h2 {
@@ -1170,13 +1003,13 @@ a#topBtn img {
 
     .store_sellect_warp li a,
     .store_sellect_warp li.active a,
-    .Menu_sellect_warp li.active a, 
+    .Menu_sellect_warp li.active a,
     .Menu_sellect_warp li a {
         font-size: 14px;
     }
 
     .Menu_sellect {
-        margin: 50px 0 20px 0;
+        margin: 50px 0 20px;
     }
 
     .cup_Icecream_menu li,
@@ -1210,10 +1043,6 @@ a#topBtn img {
         max-height: 120px !important;
     }
 
-
-
-
-
     .menu_list_warp ul li a {
         gap: 20px;
         margin-bottom: 20px;
@@ -1226,12 +1055,10 @@ a#topBtn img {
 
     .footer_list_01 {
         gap: 30px;
-        transition: all 0.4s ease;
     }
 }
 
-@media (max-width: 480px) {
-
+@media (max-width:480px) {
     .nav p>.hamburger img {
         top: 15px;
     }
@@ -1274,19 +1101,15 @@ a#topBtn img {
     }
 
     #topBtn p {
-        color: #fff;
-        font-family: "ns_regular";
         font-size: 12px;
     }
 
     a#topBtn img {
         width: 12px;
-        height: auto;
     }
 }
 
-@media (max-width: 400px) {
-
+@media (max-width:400px) {
     h2 {
         font-size: 28px;
     }
@@ -1336,8 +1159,7 @@ a#topBtn img {
     }
 }
 
-@media (max-width: 380px) {
-
+@media (max-width:380px) {
     .footer_list_01 {
         gap: 20px;
     }
@@ -1345,11 +1167,9 @@ a#topBtn img {
     .footer_warp ul>li {
         font-size: 13px;
     }
-
 }
 
-
-@media (max-width: 345px) {
+@media (max-width:345px) {
     .footer_list_01 {
         gap: 10px;
     }
@@ -1394,7 +1214,7 @@ a#topBtn img {
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width:320px) {
     h2 {
         font-size: 22px;
     }
