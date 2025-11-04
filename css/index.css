@@ -1486,6 +1486,10 @@ a#topBtn img {
         margin: 80px 0 300px;
     }
 
+    .menu_list {
+        height: 280px;
+    }
+
     .menu_list img {
         max-height: 280px;
     }
@@ -1623,6 +1627,10 @@ a#topBtn img {
 
     .menu_warp {
         height: 500px;
+    }
+
+    .menu_list {
+        height: 200px;
     }
 
     .store_menu_warp {
