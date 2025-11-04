@@ -356,7 +356,7 @@ header {
     gap: 40px;
     justify-content: center;
     align-items: center;
-    margin-bottom: 150px;
+    margin-bottom: 80px;
 }
 
 .cup_Icecream_menu li,
@@ -436,6 +436,34 @@ header {
 .img_small img {
     max-height: 230px !important;
 }
+
+.number ul {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    padding-bottom: 130px;
+    align-items: center;
+}
+
+.number ul img {
+    width: 10px;
+}
+
+.number ul li {
+    font-family: "ns_regular";
+    font-size: 16px;
+    color: #666;
+}
+
+.number ul b {
+    font-family: "ns_semibold";
+    font-size: 18px;
+    color: #650A30;
+}
+
+
+
+
 
 /* ---------- Footer ---------- */
 footer {
@@ -1107,6 +1135,14 @@ a#topBtn img {
     a#topBtn img {
         width: 12px;
     }
+
+    .number ul li {
+    font-size: 14px;
+}
+
+.number ul b {
+    font-size: 16px;
+}
 }
 
 @media (max-width:400px) {
