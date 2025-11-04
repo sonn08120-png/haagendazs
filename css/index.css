@@ -1599,6 +1599,10 @@ a#topBtn img {
         width: 12px;
         height: auto;
     }
+
+    .menu_list {
+        height: 260px;
+    }
 }
 
 @media (max-width: 400px) {
