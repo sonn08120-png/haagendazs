@@ -1104,7 +1104,8 @@ a#topBtn img {
 
 @media (max-width:480px) {
     .nav p>.hamburger img {
-        top: 15px;
+        top: 40px;
+        transform: translate(-50%, -50%)
     }
 
     .nav,
