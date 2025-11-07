@@ -56,14 +56,14 @@
                         <li>
                             <a href="#" class="gnb_title">News</a>
                             <ul class="dropdown-nav">
-                                <li><a>이벤트</a></li>
-                                <li><a>공지사항</a></li>
+                                <li><a href="#">이벤트</a></li>
+                                <li><a href="#">공지사항</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="#" class="gnb_title">B2B</a>
                             <ul class="dropdown-nav">
-                                <li><a>비즈니스 파트너</a></li>
+                                <li><a href="#">비즈니스 파트너</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -142,11 +142,11 @@
             </div>
             <div class="number">
                 <ul>
-                    <li><img src="image/arrow_left_small.png"></li>
-                    <li><b>1</b></li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li><img src="image/arrow_right_small.png"></li>
+                    <li><a href="#"><img src="image/arrow_left_small.png"></a></li>
+                    <li><a href="#"><b>1</b></a></li>
+                    <li class="small_number"><a href="#">2</a></li>
+                    <li class="small_number"><a href="#">3</a></li>
+                    <li><a href="#"><img src="image/arrow_right_small.png"></a></li>
                 </ul>
             </div>
         </div>
@@ -170,9 +170,8 @@
             </div>
             <div class="number">
                 <ul>
-                    <li><img src="image/arrow_left_small.png"></li>
+                    <li><a href=""><img src="image/arrow_left_small.png"></a></li>
                     <li><b>1</b></li>
-                    <li>2</li>
                     <li><img src="image/arrow_right_small.png"></li>
                 </ul>
             </div>
@@ -207,32 +206,57 @@
         </a>
     </footer>
 
-    <!-- ✅ 하나의 순수 JS 스크립트로 통합 -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // 1) 네비 스크롤 축소
+            // ====== 공통 엘리먼트 ======
             const nav = document.querySelector('.nav_warp');
             const headerEl = document.querySelector('header');
-            if (nav && headerEl) {
-                const io = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => { nav.classList.toggle('shrink', !entry.isIntersecting); });
-                }, { root: null, threshold: 0.8 });
-                io.observe(headerEl);
-                // 초기 상태 보정
-                const rect = headerEl.getBoundingClientRect();
-                nav.classList.toggle('shrink', rect.bottom <= 0);
-            }
 
-            // 2) 모바일 메뉴: 데스크톱 gnb 내용을 모바일로 복사
             const gnb = document.querySelector('.gnb');
             const gnbMobile = document.querySelector('.gnb-mobile');
-            if (gnb && gnbMobile) { gnbMobile.innerHTML = gnb.innerHTML; }
 
             const hamburger = document.querySelector('.hamburger');
             const mobileMenu = document.querySelector('.mobile-menu');
             const overlay = document.querySelector('.menu-overlay');
 
+            const storeBtns = document.querySelectorAll('.store_sellect_warp li');
+            const onlineCategory = document.querySelector('.online_category');
+            const offlineCategory = document.querySelector('.offline_category');
+            const onlineMenu = document.querySelector('.online_menu');
+            const offlineMenu = document.querySelector('.offline_menu');
+
+            const onlineMenus = onlineMenu ? onlineMenu.querySelectorAll('.menu_list_warp ul') : [];
+            const offlineMenus = offlineMenu ? offlineMenu.querySelectorAll('.menu_list_warp ul') : [];
+
+            const topBtn = document.getElementById('topBtn');
+
+            // ====== Helper: 스무스 스크롤 ======
+            function smoothScrollTo(el) {
+                if (!el) return;
+                // 헤더 고정 높이 보정이 필요하면 여기서 offset 조정
+                // 예: const y = el.getBoundingClientRect().top + window.scrollY - 80;
+                // window.scrollTo({ top: y, behavior: 'smooth' });
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            // ====== 헤더 축소 (IntersectionObserver) ======
+            if (nav && headerEl) {
+                const io = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => { nav.classList.toggle('shrink', !entry.isIntersecting); });
+                }, { root: null, threshold: 0.8 });
+                io.observe(headerEl);
+                const rect = headerEl.getBoundingClientRect();
+                nav.classList.toggle('shrink', rect.bottom <= 0);
+            }
+
+            // ====== GNB 모바일 메뉴 복제 ======
+            if (gnb && gnbMobile) {
+                gnbMobile.innerHTML = gnb.innerHTML;
+            }
+
+            // ====== 햄버거 & 오버레이 ======
             function closeMenu() {
+                if (!mobileMenu || !overlay || !hamburger) return;
                 mobileMenu.classList.remove('active');
                 overlay.classList.remove('active');
                 hamburger.classList.remove('active');
@@ -255,7 +279,7 @@
                 overlay.addEventListener('click', closeMenu);
             }
 
-            // 모바일 gnb 아코디언
+            // ====== 모바일 GNB 아코디언 ======
             document.addEventListener('click', function (e) {
                 const title = e.target.closest('.gnb-mobile .gnb_title');
                 if (!title) return;
@@ -267,20 +291,12 @@
                 li.classList.toggle('active');
             });
 
-            // 3) Online / Offline 탭
-            const storeBtns = document.querySelectorAll('.store_sellect_warp li');
-            const onlineCategory = document.querySelector('.online_category');
-            const offlineCategory = document.querySelector('.offline_category');
-            const onlineMenu = document.querySelector('.online_menu');
-            const offlineMenu = document.querySelector('.offline_menu');
-
-            const onlineMenus = onlineMenu ? onlineMenu.querySelectorAll('.menu_list_warp ul') : [];
-            const offlineMenus = offlineMenu ? offlineMenu.querySelectorAll('.menu_list_warp ul') : [];
-
+            // ====== 메뉴 보여주기/숨기기 ======
             function hideAllMenus() {
                 onlineMenus.forEach(menu => menu.style.display = 'none');
                 offlineMenus.forEach(menu => menu.style.display = 'none');
             }
+
             function showOnlineMenu(menuSelector) {
                 if (!onlineCategory || !offlineCategory || !onlineMenu || !offlineMenu) return;
                 onlineCategory.style.display = 'block';
@@ -290,11 +306,12 @@
                 hideAllMenus();
                 const target = onlineMenu.querySelector(menuSelector);
                 if (target) target.style.display = 'flex';
+                // 탭 활성 표시
                 storeBtns.forEach(b => b.classList.remove('active'));
                 const onlineBtn = document.querySelector('.store_sellect_warp .online');
                 if (onlineBtn) onlineBtn.classList.add('active');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
+
             function showOfflineMenu(menuSelector) {
                 if (!onlineCategory || !offlineCategory || !onlineMenu || !offlineMenu) return;
                 onlineCategory.style.display = 'none';
@@ -304,25 +321,60 @@
                 hideAllMenus();
                 const target = offlineMenu.querySelector(menuSelector);
                 if (target) target.style.display = 'flex';
+                // 탭 활성 표시
                 storeBtns.forEach(b => b.classList.remove('active'));
                 const offlineBtn = document.querySelector('.store_sellect_warp .offline');
                 if (offlineBtn) offlineBtn.classList.add('active');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
 
+            // ====== 라우팅: 해시(#online / #offline) 기반 전환 ======
+            function activateByMode(mode, doScroll = true) {
+                if (mode === 'offline') {
+                    showOfflineMenu('.creation_menu_list');
+                    if (doScroll) smoothScrollTo(document.getElementById('offline'));
+                } else {
+                    // default: online
+                    showOnlineMenu('.cup_Icecream_menu');
+                    if (doScroll) smoothScrollTo(document.getElementById('online'));
+                }
+            }
+
+            function applyFromHash(doScroll = true) {
+                const h = (location.hash || '').toLowerCase();
+                activateByMode(h === '#offline' ? 'offline' : 'online', doScroll);
+            }
+
+            // 해시 변경 시 동기화
+            window.addEventListener('hashchange', () => applyFromHash(true));
+
+            // 처음 로드 시 상태 반영(+ 스크롤)
+            // 레이아웃 계산 이후 스크롤이 자연스럽도록 한 프레임 지연
+            requestAnimationFrame(() => applyFromHash(true));
+
+            // ====== 하단 탭(Online/Offline) 클릭 시: 해시 갱신 + 스크롤 ======
             storeBtns.forEach(btn => {
                 btn.addEventListener('click', function (e) {
                     e.preventDefault();
-                    if (btn.classList.contains('online')) {
-                        showOnlineMenu('.cup_Icecream_menu');
-                    } else {
-                        showOfflineMenu('.creation_menu_list');
+                    const mode = btn.classList.contains('offline') ? 'offline' : 'online';
+                    const nextHash = `#${mode}`;
+                    if (location.hash.toLowerCase() !== nextHash) {
+                        history.replaceState(null, '', nextHash);
                     }
+                    // 같은 해시여도 강제로 반영 + 스크롤
+                    applyFromHash(true);
                 });
             });
 
-            // 4) Top 버튼
-            const topBtn = document.getElementById('topBtn');
+            // ====== 상단 GNB/모바일 메뉴에서 #online/#offline 링크 클릭 시 닫기 + 스크롤 ======
+            document.addEventListener('click', function (e) {
+                const a = e.target.closest('a[href$="#online"], a[href$="#offline"]');
+                if (!a) return;
+                // 같은 페이지 내 해시 이동이라도 메뉴 닫기
+                closeMenu();
+                // hashchange가 스크롤을 처리하므로 여기서는 굳이 막지 않음
+            });
+
+            // ====== Top 버튼 ======
             function onScroll() {
                 if (!topBtn) return;
                 if (window.scrollY > 250) topBtn.classList.add('visible');
@@ -330,8 +382,12 @@
             }
             window.addEventListener('scroll', onScroll, { passive: true });
             onScroll();
+
             if (topBtn) {
-                topBtn.addEventListener('click', function (e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+                topBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
             }
         });
     </script>

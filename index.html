@@ -72,14 +72,14 @@
                         <li>
                             <a href="#" class="gnb_title">News</a>
                             <ul class="dropdown-nav">
-                                <li><a>이벤트</a></li>
-                                <li><a>공지사항</a></li>
+                                <li><a href="#">이벤트</a></li>
+                                <li><a href="#">공지사항</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="#" class="gnb_title">B2B</a>
                             <ul class="dropdown-nav">
-                                <li><a>비즈니스 파트너</a></li>
+                                <li><a href="#">비즈니스 파트너</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -160,60 +160,10 @@
         </div>
 
         <script>
-            // 상단 메뉴 탭 이미지 교체
-            const menuItems = document.querySelectorAll(".menu_bar li");
-            const menuList = document.querySelector(".menu_list");
-
-            const images = {
-                "Cup Icecream": [
-                    "image/cup_01.png",
-                    "image/cup_02.png",
-                    "image/cup_03.png",
-                    "image/cup_04.png",
-                    "image/cup_05.png"
-                ],
-                "Bar Icecream": [
-                    "image/bar_01.png",
-                    "image/bar_02.png",
-                    "image/bar_03.png",
-                    "image/bar_04.png",
-                    "image/bar_05.png"
-                ],
-                "Sand&Cone": [
-                    "image/sand_01.png",
-                    "image/sand_02.png",
-                    "image/cone_01.png",
-                    "image/cone_02.png",
-                    "image/cone_03.png"
-                ],
-                "Cake": [
-                    "image/cake_01.png",
-                    "image/cake_02.png",
-                    "image/cake_03.png",
-                    "image/cake_05.png"
-                ]
-            };
-
-            function attachModalEvents() {
-                // 필요 시 모달/상세 이벤트 연결
-            }
-
             menuItems.forEach(item => {
                 item.addEventListener("click", () => {
                     menuItems.forEach(i => i.classList.remove("active"));
                     item.classList.add("active");
-
-                    const category = item.textContent.trim();
-                    const imgs = images[category];
-
-                    menuList.innerHTML = imgs
-                        .map((src, idx) => {
-                            const name = `${category.toLowerCase().split(" ")[0]}_${String(idx + 1).padStart(2, "0")}`;
-                            return `<li><img src="${src}" data-name="${name}" alt="${category}"></li>`;
-                        })
-                        .join("");
-
-                    attachModalEvents();
                 });
             });
         </script>
@@ -222,55 +172,26 @@
             <div class="store_menu_warp">
                 <h2>Store Menu</h2>
                 <ul class="store_menu_bar">
-                    <li class="active"><span>Icecream Drink</span></li>
-                    <li><span>Dessert</span></li>
+                    <li class="active"><span>Creation Menu</span></li>
+                    <li><span>Icecream Drink</span></li>
                 </ul>
                 <ul class="store_menu_list">
-                    <li><img src="image/drink_01.png" alt="Icecream Drink"></li>
-                    <li><img src="image/drink_02.png" alt="Icecream Drink"></li>
-                    <li><img src="image/drink_03.png" alt="Icecream Drink"></li>
-                    <li><img src="image/drink_04.png" alt="Icecream Drink"></li>
-                    <li><img src="image/drink_05.png" alt="Icecream Drink"></li>
+                    <li><img src="image/dessert_01.png" alt="Icecream Drink"></li>
+                    <li><img src="image/dessert_02.png" alt="Icecream Drink"></li>
+                    <li><img src="image/dessert_03.png" alt="Icecream Drink"></li>
+                    <li><img src="image/dessert_04.png" alt="Icecream Drink"></li>
                 </ul>
                 <a href="sub_01.html#offline"><p>more<img src="image/circle.png" alt=""></p></a>
             </div>
 
             <script>
-                // 스토어 메뉴 탭 전환
-                (function () {
-                    const storeItems = document.querySelectorAll(".store_menu_bar li");
-                    const storeList = document.querySelector(".store_menu_list");
-
-                    const storeImages = {
-                        "Icecream Drink": [
-                            "image/drink_01.png",
-                            "image/drink_02.png",
-                            "image/drink_03.png",
-                            "image/drink_04.png",
-                            "image/drink_05.png"
-                        ],
-                        "Dessert": [
-                            "image/dessert_01.png",
-                            "image/dessert_02.png",
-                            "image/dessert_03.png"
-                        ]
-                    };
-
-                    storeItems.forEach(item => {
-                        item.addEventListener("click", () => {
-                            storeItems.forEach(i => i.classList.remove("active"));
-                            item.classList.add("active");
-
-                            const category = item.textContent.trim();
-                            const imgs = storeImages[category];
-
-                            storeList.innerHTML = imgs
-                                .map(src => `<li><img src="${src}" alt="${category}"></li>`)
-                                .join("");
-                        });
-                    });
-                })();
-            </script>
+            menuItems.forEach(item => {
+                item.addEventListener("click", () => {
+                    menuItems.forEach(i => i.classList.remove("active"));
+                    item.classList.add("active");
+                });
+            });
+        </script>
 
             <div class="store_info_warp">
                 <div class="store_info">
@@ -330,40 +251,22 @@
                             <p>미리 컷팅된 8개의 조각으로 자를 걱정 없이 언제 어디서나 깔끔하게!</p>
                         </div>
                     </div>
-                </div>
-            </div>
+                    </div>
+                    </div>
+                    
+                    <script>
+                        $(window).on('load', function () {
+                            function getSlideWidth() {
+                                const winW = $(window).width();
+                                if (winW <= 480) return 300;
+                                if (winW <= 768) return 340;
+                                if (winW <= 1200) return 380;
+                                if (winW <= 1600) return 430;
+                                return 480;
+                            }
 
-            <script>
-                // SNS 슬라이더
-                $(document).ready(function () {
-                    function getSlideWidth() {
-                        const winW = $(window).width();
-                        if (winW <= 480) return 300;
-                        if (winW <= 768) return 340;
-                        if (winW <= 1200) return 380;
-                        if (winW <= 1600) return 430;
-                        return 480;
-                    }
-
-                    let slider = $('.slider4').bxSlider({
-                        auto: true,
-                        autoControls: false,
-                        slideWidth: getSlideWidth(),
-                        maxSlides: 5,
-                        moveSlides: 1,
-                        slideMargin: 30,
-                        pager: false,
-                        controls: false
-                    });
-
-                    $('#next').on('click', function () { slider.goToNextSlide(); });
-                    $('#prev').on('click', function () { slider.goToPrevSlide(); });
-
-                    let resizeTimer;
-                    $(window).on('resize', function () {
-                        clearTimeout(resizeTimer);
-                        resizeTimer = setTimeout(function () {
-                            slider.reloadSlider({
+                            // 이미지 다 불러온 다음 초기화
+                            let slider = $('.slider4').bxSlider({
                                 auto: true,
                                 autoControls: false,
                                 slideWidth: getSlideWidth(),
@@ -373,15 +276,37 @@
                                 pager: false,
                                 controls: false
                             });
-                        }, 200);
-                    });
-                });
-            </script>
-        </div>
-    </main>
+
+                            $('#next').on('click', function () {
+                                slider.goToNextSlide();
+                            });
+                            $('#prev').on('click', function () {
+                                slider.goToPrevSlide();
+                            });
+
+                            // 브라우저 리사이즈 시 슬라이드 다시 계산
+                            let resizeTimer;
+                            $(window).on('resize', function () {
+                                clearTimeout(resizeTimer);
+                                resizeTimer = setTimeout(function () {
+                                    slider.reloadSlider({
+                                        auto: true,
+                                        autoControls: false,
+                                        slideWidth: getSlideWidth(),
+                                        maxSlides: 5,
+                                        moveSlides: 1,
+                                        slideMargin: 30,
+                                        pager: false,
+                                        controls: false
+                                    });
+                                }, 200);
+                            });
+                        });
+                    </script>
+                    </div>
+                    </main>
 
     <script>
-        // 탭 활성화 표시 (메뉴/스토어 메뉴)
         const menuBarItems = document.querySelectorAll('.menu_bar li');
         menuBarItems.forEach(item => {
             item.addEventListener('click', () => {
@@ -426,7 +351,6 @@
     </footer>
 
     <script>
-        // Top 버튼
         $(function () {
             $(window).scroll(function () {
                 if ($(this).scrollTop() > 250) {
@@ -445,7 +369,6 @@
     <script src="https://player.vimeo.com/api/player.js"></script>
 
     <script>
-        // 스크롤에 따른 헤더 축소(.shrink) — 유지
         (function () {
             const nav = document.querySelector('.nav_warp');
             const header = document.querySelector('header');
@@ -472,7 +395,6 @@
     </script>
 
     <script>
-        // 섹션-도트 내비게이션
         const sections = document.querySelectorAll('header, .menu, .store_menu, .sns_warp, footer');
         const dots = document.querySelectorAll('.dot-nav .dot');
 
