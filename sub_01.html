@@ -33,11 +33,11 @@
                         <li>
                             <a href="sub_01.html#online" class="gnb_title">Menu</a>
                             <ul class="dropdown-nav">
-                                <li><a href="sub_01.html">온라인스토어</a></li>
-                                <li class="dropdown-sub"><a href="sub_01.html">컵 아이스크림</a></li>
-                                <li class="dropdown-sub"><a href="sub_01.html">바 아이스크림</a></li>
-                                <li class="dropdown-sub"><a href="sub_01.html">샌드&콘 아이스크림</a></li>
-                                <li class="dropdown-sub"><a href="sub_01.html">아이스크림 케이크</a></li>
+                                <li><a href="sub_01.html#online">온라인스토어</a></li>
+                                <li class="dropdown-sub"><a href="sub_01.html#online">컵 아이스크림</a></li>
+                                <li class="dropdown-sub"><a href="sub_01.html#online">바 아이스크림</a></li>
+                                <li class="dropdown-sub"><a href="sub_01.html#online">샌드&콘 아이스크림</a></li>
+                                <li class="dropdown-sub"><a href="sub_01.html#online">아이스크림 케이크</a></li>
                                 <li><a href="sub_01.html#offline">오프라인 스토어</a></li>
                                 <li class="dropdown-sub"><a href="sub_01.html#offline">크리에이션 메뉴</a></li>
                                 <li class="dropdown-sub"><a href="sub_01.html#offline">아이스크림 드링크</a></li>
@@ -230,13 +230,9 @@
 
             const topBtn = document.getElementById('topBtn');
 
-            // ====== Helper: 스무스 스크롤 ======
-            function smoothScrollTo(el) {
-                if (!el) return;
-                // 헤더 고정 높이 보정이 필요하면 여기서 offset 조정
-                // 예: const y = el.getBoundingClientRect().top + window.scrollY - 80;
-                // window.scrollTo({ top: y, behavior: 'smooth' });
-                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // ====== 스크롤: 항상 최상단으로 이동 ======
+            function scrollToTop(smooth = true) {
+                window.scrollTo({ top: 0, behavior: smooth ? 'smooth' : 'auto' });
             }
 
             // ====== 헤더 축소 (IntersectionObserver) ======
@@ -250,9 +246,7 @@
             }
 
             // ====== GNB 모바일 메뉴 복제 ======
-            if (gnb && gnbMobile) {
-                gnbMobile.innerHTML = gnb.innerHTML;
-            }
+            if (gnb && gnbMobile) gnbMobile.innerHTML = gnb.innerHTML;
 
             // ====== 햄버거 & 오버레이 ======
             function closeMenu() {
@@ -331,12 +325,10 @@
             function activateByMode(mode, doScroll = true) {
                 if (mode === 'offline') {
                     showOfflineMenu('.creation_menu_list');
-                    if (doScroll) smoothScrollTo(document.getElementById('offline'));
                 } else {
-                    // default: online
-                    showOnlineMenu('.cup_Icecream_menu');
-                    if (doScroll) smoothScrollTo(document.getElementById('online'));
+                    showOnlineMenu('.cup_Icecream_menu'); // default: online
                 }
+                if (doScroll) scrollToTop(true); // 항상 최상단으로 스크롤
             }
 
             function applyFromHash(doScroll = true) {
@@ -344,14 +336,16 @@
                 activateByMode(h === '#offline' ? 'offline' : 'online', doScroll);
             }
 
-            // 해시 변경 시 동기화
+            // 해시 변경 시 (브라우저 기본 앵커 스크롤 방지 + 우리 로직만)
             window.addEventListener('hashchange', () => applyFromHash(true));
 
-            // 처음 로드 시 상태 반영(+ 스크롤)
-            // 레이아웃 계산 이후 스크롤이 자연스럽도록 한 프레임 지연
-            requestAnimationFrame(() => applyFromHash(true));
+            // 초기 로드: 브라우저의 자동 앵커 점프를 덮어쓰기
+            requestAnimationFrame(() => {
+                applyFromHash(false); // 먼저 UI만 세팅
+                scrollToTop(false);   // 곧바로 최상단 고정(부드러움 X)
+            });
 
-            // ====== 하단 탭(Online/Offline) 클릭 시: 해시 갱신 + 스크롤 ======
+            // ====== 하단 탭 클릭: 해시 갱신 + 최상단 이동 ======
             storeBtns.forEach(btn => {
                 btn.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -360,18 +354,20 @@
                     if (location.hash.toLowerCase() !== nextHash) {
                         history.replaceState(null, '', nextHash);
                     }
-                    // 같은 해시여도 강제로 반영 + 스크롤
-                    applyFromHash(true);
+                    applyFromHash(true); // 모드 전환 + 최상단
                 });
             });
 
-            // ====== 상단 GNB/모바일 메뉴에서 #online/#offline 링크 클릭 시 닫기 + 스크롤 ======
+            // ====== 상단 GNB/모바일 메뉴에서 #online/#offline 클릭 시: 기본 스크롤 막기 ======
             document.addEventListener('click', function (e) {
                 const a = e.target.closest('a[href$="#online"], a[href$="#offline"]');
                 if (!a) return;
-                // 같은 페이지 내 해시 이동이라도 메뉴 닫기
+                e.preventDefault(); // 브라우저 기본 앵커 스크롤 방지
+                const href = a.getAttribute('href');
+                const hash = href.slice(href.lastIndexOf('#'));
+                history.replaceState(null, '', hash); // 주소만 해시 변경
+                applyFromHash(true);                   // 모드 전환 + 최상단
                 closeMenu();
-                // hashchange가 스크롤을 처리하므로 여기서는 굳이 막지 않음
             });
 
             // ====== Top 버튼 ======
@@ -386,7 +382,7 @@
             if (topBtn) {
                 topBtn.addEventListener('click', function (e) {
                     e.preventDefault();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    scrollToTop(true);
                 });
             }
         });
