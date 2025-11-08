@@ -89,7 +89,6 @@
                         <a href="" class="hamburger" aria-label="모바일 메뉴 열기"><img src="image/hamburger.png" alt=""></a>
                     </p>
 
-                    <!-- Mobile -->
                     <div class="mobile-menu">
                         <ul class="gnb-mobile"></ul>
                     </div>
@@ -99,7 +98,6 @@
         </div>
 
         <script>
-            // 모바일 메뉴 복제 및 토글
             $(window).on("load", function () {
                 const gnbHtml = $(".gnb").html();
                 if (gnbHtml) $(".gnb-mobile").html(gnbHtml);
@@ -132,12 +130,11 @@
                 src="https://player.vimeo.com/video/1071707544?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;background=1"
                 frameborder="0"
                 allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                title="(HS)하겐다즈_리테일_스틱바영상 tvcf용 0220(mp4)">
+                referrerpolicy="strict-origin-when-cross-origin" title="(HS)하겐다즈_리테일_스틱바영상 tvcf용 0220(mp4)">
             </iframe>
         </div>
     </header>
-
+    
     <main>
         <div class="menu" id="menu">
             <div class="menu_warp">
@@ -149,23 +146,114 @@
                     <li><span>Cake</span></li>
                 </ul>
                 <ul class="menu_list">
-                    <li><img src="image/cup_01.png"></li>
+                    <li id="cup01"><img src="image/cup_01.png"></li>
                     <li><img src="image/cup_02.png"></li>
                     <li><img src="image/cup_03.png"></li>
                     <li><img src="image/cup_04.png"></li>
                     <li><img src="image/cup_05.png"></li>
                 </ul>
-                <a href="sub_01.html#online"><p>more<img src="image/circle.png" alt=""></p></a>
+                <a href="sub_01.html#online">
+                    <p>more <img src="image/circle.png" alt=""></p>
+                </a>
             </div>
         </div>
+    
+        <div class="modal" id="productModal">
+            <div class="modal__overlay" id="overlay"></div>
+            <div class="modal__box">
+                <button class="modal__close" id="closeBtn">✕</button>
+        
+                <div class="modal__imgwrap">
+                    <img src="image/cup_01.png" alt="하겐다즈 쿠키앤그린티 아이스크림">
+                </div>
+        
+                <div class="modal__content">
+                    <h3>하겐다즈 쿠키앤그린티 (미니컵) 100ml</h3>
+                    <p>Cookies & Green Tea Ice Cream</p>
+                    <p>압도적 함량의 Real 쿠키와 최상급 그린티의 우아한 만남!</p>
 
+                    <div class="modal__allergy">
+                        <span></span><p>알레르기 유발 성분 : 우유, 계란, 밀 함유</p>
+                    </div>
+        
+                    <table class="nutri-table">
+                        <thead>
+                            <tr>
+                                <th>구분</th>
+                                <th>1회 제공량</th>
+                                <th>기준치</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>열량</td>
+                                <td>230 kcal</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>나트륨</td>
+                                <td>70 mg</td>
+                                <td>4%</td>
+                            </tr>
+                            <tr>
+                                <td>탄수화물</td>
+                                <td>22 g</td>
+                                <td>7%</td>
+                            </tr>
+                            <tr>
+                                <td>당류</td>
+                                <td>19 g</td>
+                                <td>19%</td>
+                            </tr>
+                            <tr>
+                                <td>지방</td>
+                                <td>14 g</td>
+                                <td>26%</td>
+                            </tr>
+                            <tr>
+                                <td>포화지방</td>
+                                <td>9 g</td>
+                                <td>60%</td>
+                            </tr>
+                            <tr>
+                                <td>콜레스테롤</td>
+                                <td>70 mg</td>
+                                <td>23%</td>
+                            </tr>
+                            <tr>
+                                <td>단백질</td>
+                                <td>4 g</td>
+                                <td>7%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    
         <script>
-            menuItems.forEach(item => {
-                item.addEventListener("click", () => {
-                    menuItems.forEach(i => i.classList.remove("active"));
-                    item.classList.add("active");
+            // 메뉴 탭 active 유지
+            document.querySelectorAll(".menu_bar").forEach(list => {
+                list.addEventListener("click", e => {
+                    const li = e.target.closest("li");
+                    if (!li) return;
+                    list.querySelectorAll("li").forEach(el => el.classList.remove("active"));
+                    li.classList.add("active");
                 });
             });
+
+            // ✅ id 이름 맞춘 cup01 클릭 시 모달 열기
+            document.getElementById("cup01").onclick = function () {
+                document.getElementById("productModal").classList.add("show");
+            };
+
+            // 닫기 버튼과 오버레이 클릭 시 닫기
+            document.getElementById("overlay").onclick = closeModal;
+            document.getElementById("closeBtn").onclick = closeModal;
+
+            function closeModal() {
+                document.getElementById("productModal").classList.remove("show");
+            }
         </script>
 
         <div class="store_menu" id="store_menu">
@@ -181,17 +269,19 @@
                     <li><img src="image/dessert_04.png"></li>
                     <li><img src="image/dessert_03.png"></li>
                 </ul>
-                <a href="sub_01.html#offline"><p>more<img src="image/circle.png" alt=""></p></a>
+                <a href="sub_01.html#offline">
+                    <p>more<img src="image/circle.png" alt=""></p>
+                </a>
             </div>
 
             <script>
-            menuItems.forEach(item => {
-                item.addEventListener("click", () => {
-                    menuItems.forEach(i => i.classList.remove("active"));
-                    item.classList.add("active");
+                menuItems.forEach(item => {
+                    item.addEventListener("click", () => {
+                        menuItems.forEach(i => i.classList.remove("active"));
+                        item.classList.add("active");
+                    });
                 });
-            });
-        </script>
+            </script>
 
             <div class="store_info_warp">
                 <div class="store_info">
@@ -210,9 +300,9 @@
         <div class="sns_warp" id="sns_warp">
             <div class="sns">
                 <div class="slider_controls">
-                    <span id="prev"><img src="image/arrow_left.png" width="42" height="42" alt="prev"></span>
+                    <button id="prev"><img src="image/arrow_left.png" width="42" height="42" alt="prev"></button>
                     <h2>HaagenDazs News</h2>
-                    <span id="next"><img src="image/arrow_right.png" width="42" height="42" alt="next"></span>
+                    <button href="" id="next"><img src="image/arrow_right.png" width="42" height="42" alt="next"></button>
                 </div>
 
                 <div class="slider4">
@@ -251,22 +341,45 @@
                             <p>미리 컷팅된 8개의 조각으로 자를 걱정 없이 언제 어디서나 깔끔하게!</p>
                         </div>
                     </div>
-                    </div>
-                    </div>
-                    
-                    <script>
-                        $(window).on('load', function () {
-                            function getSlideWidth() {
-                                const winW = $(window).width();
-                                if (winW <= 480) return 300;
-                                if (winW <= 768) return 340;
-                                if (winW <= 1200) return 380;
-                                if (winW <= 1600) return 430;
-                                return 480;
-                            }
+                </div>
+            </div>
 
-                            // 이미지 다 불러온 다음 초기화
-                            let slider = $('.slider4').bxSlider({
+            <script>
+                $(window).on('load', function () {
+                    function getSlideWidth() {
+                        const winW = $(window).width();
+                        if (winW <= 480) return 300;
+                        if (winW <= 768) return 340;
+                        if (winW <= 1200) return 380;
+                        if (winW <= 1600) return 430;
+                        return 480;
+                    }
+
+                    // 이미지 다 불러온 다음 초기화
+                    let slider = $('.slider4').bxSlider({
+                        auto: true,
+                        autoControls: false,
+                        slideWidth: getSlideWidth(),
+                        maxSlides: 5,
+                        moveSlides: 1,
+                        slideMargin: 30,
+                        pager: false,
+                        controls: false
+                    });
+
+                    $('#next').on('click', function () {
+                        slider.goToNextSlide();
+                    });
+                    $('#prev').on('click', function () {
+                        slider.goToPrevSlide();
+                    });
+
+                    // 브라우저 리사이즈 시 슬라이드 다시 계산
+                    let resizeTimer;
+                    $(window).on('resize', function () {
+                        clearTimeout(resizeTimer);
+                        resizeTimer = setTimeout(function () {
+                            slider.reloadSlider({
                                 auto: true,
                                 autoControls: false,
                                 slideWidth: getSlideWidth(),
@@ -276,35 +389,12 @@
                                 pager: false,
                                 controls: false
                             });
-
-                            $('#next').on('click', function () {
-                                slider.goToNextSlide();
-                            });
-                            $('#prev').on('click', function () {
-                                slider.goToPrevSlide();
-                            });
-
-                            // 브라우저 리사이즈 시 슬라이드 다시 계산
-                            let resizeTimer;
-                            $(window).on('resize', function () {
-                                clearTimeout(resizeTimer);
-                                resizeTimer = setTimeout(function () {
-                                    slider.reloadSlider({
-                                        auto: true,
-                                        autoControls: false,
-                                        slideWidth: getSlideWidth(),
-                                        maxSlides: 5,
-                                        moveSlides: 1,
-                                        slideMargin: 30,
-                                        pager: false,
-                                        controls: false
-                                    });
-                                }, 200);
-                            });
-                        });
-                    </script>
-                    </div>
-                    </main>
+                        }, 200);
+                    });
+                });
+            </script>
+        </div>
+    </main>
 
     <script>
         const menuBarItems = document.querySelectorAll('.menu_bar li');
@@ -347,7 +437,9 @@
             </div>
         </div>
 
-        <a id="topBtn" href="#"><img src="image/arrow_top.png" alt=""><p>Top</p></a>
+        <a id="topBtn" href="#"><img src="image/arrow_top.png" alt="">
+            <p>Top</p>
+        </a>
     </footer>
 
     <script>
@@ -417,4 +509,5 @@
         }));
     </script>
 </body>
+
 </html>

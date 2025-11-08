@@ -35,6 +35,14 @@ body {
     -ms-overflow-style: none;
 }
 
+button {
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
 
 
 
@@ -473,6 +481,10 @@ header {
     transition: transform 0.4s ease;
 }
 
+.menu_list:active {
+
+}
+
 
 .menu p,
 .store_menu p {
@@ -620,13 +632,119 @@ header {
 
 
 
+.menu_list li img {
+    cursor: pointer;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal__box {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    padding-right: 80px;
+    position: relative;
+    display: flex;
+}
+
+.modal__content {
+    padding: 80px 0 80px 80px;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal__content h3 {
+    font-family: "ns_semibold";
+    font-size: 23px;
+    color: #35081D;
+    margin-bottom: 6px;
+}
+
+.modal__content p {
+    font-family: "ns_semibold";
+    font-size: 18px;
+    color: #35081D;
+    margin-bottom: 32px;
+}
+
+.modal__allergy {
+    display: flex;
+    align-items: center;
+    margin-bottom: 38px;
+}
+
+.modal__allergy p {
+    font-family: "ns_regular";
+    font-size: 16px;
+    color: #35081D;
+    margin-bottom: 0px !important;
+}
+
+.modal__allergy span {
+    width: 20px;
+    height: 20px;
+    background: #35081D;
+    margin-right: 10px;
+}
+
+.modal__imgwrap {
+    background: #650A30;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px;
+    box-sizing: border-box;
+}
 
 
+.modal__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #650A30;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #650A30;
+    border-radius: 50%;
+}
 
+.nutri-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
 
+.nutri-table tr:first-child th {
+    font-family: "ns_semibold";
+    font-size: 16px;
+    color: #35081D !important;
+}
 
-
-
+.nutri-table th,
+.nutri-table td {
+    font-family: "ns_regular";
+    font-size: 16px;
+    color: #747474;
+    border-bottom: 1px solid #ddd;
+    padding: 6px;
+    text-align: left;
+}
 
 
 

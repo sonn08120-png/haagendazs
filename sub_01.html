@@ -4,6 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="image/thumbnail.png" width="800" height="600">
+    <meta property="og:title" content="송혜린_하겐다즈_메뉴">
+    <meta property="og:description" content="uiux_10/13_하겐다즈_메뉴">
+    <meta property="og:url" content="https://sonn08120-png.github.io/haagendazs/sub_01.html">
     <link rel="stylesheet" href="css/sub_01.css">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <title>Haagen-Dazs Menu</title>
@@ -205,10 +209,10 @@
             <p>Top</p>
         </a>
     </footer>
-
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // ====== 공통 엘리먼트 ======
+
+            /* ===== 공통 엘리먼트 ===== */
             const nav = document.querySelector('.nav_warp');
             const headerEl = document.querySelector('header');
 
@@ -230,25 +234,25 @@
 
             const topBtn = document.getElementById('topBtn');
 
-            // ====== 스크롤: 항상 최상단으로 이동 ======
+            /* ===== 스크롤: 항상 최상단 이동 ===== */
             function scrollToTop(smooth = true) {
                 window.scrollTo({ top: 0, behavior: smooth ? 'smooth' : 'auto' });
             }
 
-            // ====== 헤더 축소 (IntersectionObserver) ======
+            /* ===== 헤더 축소 ===== */
             if (nav && headerEl) {
                 const io = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => { nav.classList.toggle('shrink', !entry.isIntersecting); });
+                    entries.forEach(entry => nav.classList.toggle('shrink', !entry.isIntersecting));
                 }, { root: null, threshold: 0.8 });
                 io.observe(headerEl);
                 const rect = headerEl.getBoundingClientRect();
                 nav.classList.toggle('shrink', rect.bottom <= 0);
             }
 
-            // ====== GNB 모바일 메뉴 복제 ======
+            /* ===== GNB 모바일 메뉴 복제 ===== */
             if (gnb && gnbMobile) gnbMobile.innerHTML = gnb.innerHTML;
 
-            // ====== 햄버거 & 오버레이 ======
+            /* ===== 햄버거 & 오버레이 ===== */
             function closeMenu() {
                 if (!mobileMenu || !overlay || !hamburger) return;
                 mobileMenu.classList.remove('active');
@@ -273,7 +277,7 @@
                 overlay.addEventListener('click', closeMenu);
             }
 
-            // ====== 모바일 GNB 아코디언 ======
+            /* ===== 모바일 GNB 아코디언 ===== */
             document.addEventListener('click', function (e) {
                 const title = e.target.closest('.gnb-mobile .gnb_title');
                 if (!title) return;
@@ -285,10 +289,37 @@
                 li.classList.toggle('active');
             });
 
-            // ====== 메뉴 보여주기/숨기기 ======
+            /* ===== (수정) 카테고리 탭: 섹션별로만 active 이동 ===== */
+            document.querySelectorAll('.Menu_sellect').forEach(section => {
+                const list = section.querySelector('.Menu_sellect_warp');
+                if (!list) return;
+                list.addEventListener('click', (e) => {
+                    const li = e.target.closest('li');
+                    if (!li) return;
+                    e.preventDefault();
+                    // 이 섹션 안에서만 active 이동
+                    list.querySelectorAll('li').forEach(el => el.classList.remove('active'));
+                    li.classList.add('active');
+                });
+            });
+
+            /* ===== 온라인/오프라인 메뉴 표시 ===== */
             function hideAllMenus() {
                 onlineMenus.forEach(menu => menu.style.display = 'none');
                 offlineMenus.forEach(menu => menu.style.display = 'none');
+            }
+
+            // 섹션 기본 active 보장 (안전망)
+            function ensureDefaultActive(sectionSelector, defaultLiSelector) {
+                const section = document.querySelector(sectionSelector);
+                if (!section) return;
+                const list = section.querySelector('.Menu_sellect_warp');
+                if (!list) return;
+                const hasActive = list.querySelector('li.active');
+                if (!hasActive) {
+                    const def = list.querySelector(defaultLiSelector);
+                    if (def) def.classList.add('active');
+                }
             }
 
             function showOnlineMenu(menuSelector) {
@@ -304,6 +335,8 @@
                 storeBtns.forEach(b => b.classList.remove('active'));
                 const onlineBtn = document.querySelector('.store_sellect_warp .online');
                 if (onlineBtn) onlineBtn.classList.add('active');
+                // 온라인 기본 active 보장 (cup_menu)
+                ensureDefaultActive('.online_category', '.cup_menu');
             }
 
             function showOfflineMenu(menuSelector) {
@@ -319,16 +352,18 @@
                 storeBtns.forEach(b => b.classList.remove('active'));
                 const offlineBtn = document.querySelector('.store_sellect_warp .offline');
                 if (offlineBtn) offlineBtn.classList.add('active');
+                // 오프라인 기본 active 보장 (creation_menu)
+                ensureDefaultActive('.offline_category', '.creation_menu');
             }
 
-            // ====== 라우팅: 해시(#online / #offline) 기반 전환 ======
+            /* ===== 라우팅: #online / #offline ===== */
             function activateByMode(mode, doScroll = true) {
                 if (mode === 'offline') {
                     showOfflineMenu('.creation_menu_list');
                 } else {
-                    showOnlineMenu('.cup_Icecream_menu'); // default: online
+                    showOnlineMenu('.cup_Icecream_menu'); // 기본 online
                 }
-                if (doScroll) scrollToTop(true); // 항상 최상단으로 스크롤
+                if (doScroll) scrollToTop(true);
             }
 
             function applyFromHash(doScroll = true) {
@@ -336,16 +371,14 @@
                 activateByMode(h === '#offline' ? 'offline' : 'online', doScroll);
             }
 
-            // 해시 변경 시 (브라우저 기본 앵커 스크롤 방지 + 우리 로직만)
             window.addEventListener('hashchange', () => applyFromHash(true));
 
-            // 초기 로드: 브라우저의 자동 앵커 점프를 덮어쓰기
             requestAnimationFrame(() => {
-                applyFromHash(false); // 먼저 UI만 세팅
-                scrollToTop(false);   // 곧바로 최상단 고정(부드러움 X)
+                applyFromHash(false);
+                scrollToTop(false);
             });
 
-            // ====== 하단 탭 클릭: 해시 갱신 + 최상단 이동 ======
+            /* ===== 하단 탭 클릭: 해시 갱신 + 스크롤 ===== */
             storeBtns.forEach(btn => {
                 btn.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -354,23 +387,23 @@
                     if (location.hash.toLowerCase() !== nextHash) {
                         history.replaceState(null, '', nextHash);
                     }
-                    applyFromHash(true); // 모드 전환 + 최상단
+                    applyFromHash(true);
                 });
             });
 
-            // ====== 상단 GNB/모바일 메뉴에서 #online/#offline 클릭 시: 기본 스크롤 막기 ======
+            /* ===== 상단 GNB/모바일에서 #online/#offline 클릭 ===== */
             document.addEventListener('click', function (e) {
                 const a = e.target.closest('a[href$="#online"], a[href$="#offline"]');
                 if (!a) return;
-                e.preventDefault(); // 브라우저 기본 앵커 스크롤 방지
+                e.preventDefault();
                 const href = a.getAttribute('href');
                 const hash = href.slice(href.lastIndexOf('#'));
-                history.replaceState(null, '', hash); // 주소만 해시 변경
-                applyFromHash(true);                   // 모드 전환 + 최상단
+                history.replaceState(null, '', hash);
+                applyFromHash(true);
                 closeMenu();
             });
 
-            // ====== Top 버튼 ======
+            /* ===== Top 버튼 ===== */
             function onScroll() {
                 if (!topBtn) return;
                 if (window.scrollY > 250) topBtn.classList.add('visible');
@@ -385,6 +418,7 @@
                     scrollToTop(true);
                 });
             }
+
         });
     </script>
 </body>
