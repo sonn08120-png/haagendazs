@@ -657,6 +657,7 @@ header {
     padding-right: 80px;
     position: relative;
     display: flex;
+	transition: all 0.4s ease;
 }
 
 .modal__content {
