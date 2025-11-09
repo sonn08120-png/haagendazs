@@ -632,6 +632,18 @@ header {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 .menu_list li img {
     cursor: pointer;
 }
@@ -643,7 +655,7 @@ header {
     align-items: center;
     justify-content: center;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+    z-index: 100000;
 }
 
 .modal.show {
@@ -657,7 +669,7 @@ header {
     padding-right: 80px;
     position: relative;
     display: flex;
-	transition: all 0.4s ease;
+    transition: all 0.4s ease;
 }
 
 .modal__content {
@@ -1536,16 +1548,29 @@ a#topBtn img {
         height: auto;
     }
 
+    .menu {
+        margin-top: 200px;
+    }
+
+    .modal {
+        align-items: flex-start;
+        padding-top: 120px;
+        overflow: hidden;
+    }
+
     .modal__box {
     padding-right: 25px;
     flex-direction: column;
     padding-right: 0px;
+    height: 90%;
 }
 
 .modal__content {
     display: flex;
     flex-direction: column;
     padding: 25px;
+    max-height: calc(100dvh - 100px);
+    overflow-y: auto;
 }
 
 .modal__content h3 {
