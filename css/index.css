@@ -1767,17 +1767,20 @@ a#topBtn img {
     }
 
     .slider_controls span {
-        position: absolute;
         bottom: -600px;
     }
 
     #prev {
+        position: absolute;
+        bottom: -1620%;
         left: 35%;
         transition: all 0.4s ease;
     }
 
     #next {
+        position: absolute;
         right: 35%;
+        bottom: -1620%;
         transition: all 0.4s ease;
     }
 
@@ -1900,11 +1903,17 @@ a#topBtn img {
     }
 
     #prev {
+        position: absolute;
+        bottom: -1480%;
         left: 25%;
+        transition: all 0.4s ease;
     }
 
     #next {
+        position: absolute;
         right: 25%;
+        bottom: -1480%;
+        transition: all 0.4s ease;
     }
 
     #topBtn {
@@ -2154,5 +2163,19 @@ a#topBtn img {
     }
     .sns {
         margin-top: 40px;
+    }
+
+    #prev {
+        position: absolute;
+        bottom: -1880%;
+        left: 25%;
+        transition: all 0.4s ease;
+    }
+
+    #next {
+        position: absolute;
+        right: 25%;
+        bottom: -1880%;
+        transition: all 0.4s ease;
     }
 }
