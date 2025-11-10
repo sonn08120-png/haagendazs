@@ -547,6 +547,7 @@ a#topBtn img {
     .about_bottom {
         width: 100%;
         align-items: start;
+        gap: 50px;
     }
 
     .about_middle img,
