@@ -3,548 +3,504 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/deagu.css">
-    <link rel="stylesheet" href="css/slickslider.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <title>Haagen-Dazs Main</title>
+
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/slider.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.js"></script>
-    <title>대구문화예술회관 메인</title>
 </head>
 
 <body>
+    <div class="dot-nav">
+        <button class="dot active" data-target="header"></button>
+        <button class="dot" data-target="menu"></button>
+        <button class="dot" data-target="store_menu"></button>
+        <button class="dot" data-target="sns_warp"></button>
+        <button class="dot" data-target="footer"></button>
+    </div>
+
     <header>
-        <div class="header_warp">
-            <div class="nav_warp">
+        <div class="nav_warp">
+            <div class="nav_back">
                 <div class="nav">
-                    <div class="nav_top">
-                        <h1><a href="index.html"><img src="image/logo.png" alt="대구문화예술회관로고"></a></h1>
-                        <div class="nav_my">
-                            <a href=""><img src="image/login.png" alt="로그인">로그인</a>
-                            <a href=""><img src="image/mypage.png" alt="마이페이지">마이페이지</a>
-                        </div>
-                    </div>
-                    <span></span>
-                    <div class="nav_bottom">
-                        <ul class="gnb">
-                            <li class="nav_title">
-                                <a href="#">공연·전시</a>
-                                <div class="nav_hover">
-                                    <ul class="nav_hover_warp">
-                                            <li>
-                                                <a href="">공연정보</a>
-                                                <a href="#">진행중인공연</a>
-                                                <a href="deagu_sub1.html">월간일정</a>
-                                                <a href="#">연간일정</a>
-                                            </li>
-                                            <li>
-                                                <a href="">전시정보</a>
-                                                <a href="#">진행중인전시</a>
-                                                <a href="#">월간일정</a>
-                                                <a href="#">연간일정</a>
-                                            </li>
-                                            <li>
-                                                <a href="">관람예절안내</a>
-                                                <a href="daegu_sub2.html">공연예절</a>
-                                                <a href="#">전시예절</a>
-                                            </li>
-                                            <li>
-                                                <a href="">포토갤러리</a>
-                                                <a href="#">갤러리바로가기</a>
-                                            </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav_title has-mega">
-                                <a href="#">티켓예매</a>
-                                <div class="nav_hover">
-                                    <ul class="nav_hover_warp">
-                                            <li>
-                                                <a href="#">예매안내</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">예매확인 및 취소</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">좌석배치도</a>
-                                            </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav_title">
-                                <a href="#">대관안내</a>
-                                <div class="nav_hover">
-                                    <ul class="nav_hover_warp">
-                                        <li>
-                                                <a href="#">시설안내</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">대관이용안내</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">사용료안내</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">관련조례</a>
-                                            </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav_title">
-                                <a href="#">문화예술교육</a>
-                                <div class="nav_hover">
-                                    <ul class="nav_hover_warp">
-                                            <li>
-                                                <a href="#">예술아카데미소개</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">모집안내</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">공지사항</a>
-                                            </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav_title">
-                                <a href="#">시립예술단</a>
-                                <div class="nav_hover">
-                                    <ul class="nav_hover_warp">
-                                            <li>
-                                                <a href="">국악단</a>
-                                                <a href="#">소개</a>
-                                                <a href="#">지휘자 및 단원현황</a>
-                                                <a href="#">포토갤러리</a>
-                                            </li>
-                                            <li>
-                                                <a href="">무용단</a>
-                                                <a href="#">소개</a>
-                                                <a href="#">지휘자 및 단원현황</a>
-                                                <a href="#">포토갤러리</a>
-                                            </li>
-                                            <li>
-                                                <a href="">극단</a>
-                                                <a href="#">소개</a>
-                                                <a href="#">지휘자 및 단원현황</a>
-                                                <a href="#">포토갤러리</a>
-                                            </li>
-                                            <li>
-                                                <a href="">소년소녀합창단</a>
-                                                <a href="#">소개</a>
-                                                <a href="#">지휘자 및 단원현황</a>
-                                                <a href="#">포토갤러리</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">공연지원팀</a>
-                                            </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav_title">
-                                <a href="#">회관소개</a>
-                                <div class="nav_hover">
-                                    <ul class="nav_hover_warp">
-                                            <li>
-                                                <a href="#">인사말</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">연혁</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">비전 및 전략</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">조직 및 연락처</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">BI소개</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">오시는길</a>
-                                            </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav_title">
-                                <a href="#">열린광장</a>
-                                <div class="nav_hover">
-                                    <ul class="nav_hover_warp">
-                                            <li>
-                                                <a href="#">공지사항</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">관람후기</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Q&A</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">자유게시판</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">고객의소리</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">분실물코너</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">로그인</a>
-                                            </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="nav_bottom_img">
-                            <a href=""><img src="image/Magnifier.png" alt="검색"></a>
-                            <a href=""><img src="image/hambergur.png" alt="메뉴"></a>
+                    <h1>
+                        <a href="index.html"><img src="image/logo_02_ft.png" class="logo-default" alt="Haagen-Dazs"></a>
+                        <a href="index.html"><img src="image/logo_02.png" class="logo-scrolled" alt="Haagen-Dazs"></a>
+                    </h1>
+
+                    <ul class="gnb">
+                        <li>
+                            <a href="#" class="gnb_title">Brand</a>
+                            <ul class="dropdown-nav">
+                                <li><a href="sub_02.html">소개</a></li>
+                                <li><a href="">연혁</a></li>
+                                <li><a href="">BI</a></li>
+                                <li><a href="">매장안내</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="sub_01.html" class="gnb_title">Menu</a>
+                            <ul class="dropdown-nav">
+                                <li><a href="sub_01.html#online">온라인스토어</a></li>
+                                <li class="dropdown-sub"><a href="sub_01.html#online">컵 아이스크림</a></li>
+                                <li class="dropdown-sub"><a href="sub_01.html#online">바 아이스크림</a></li>
+                                <li class="dropdown-sub"><a href="sub_01.html#online">샌드&콘 아이스크림</a></li>
+                                <li class="dropdown-sub"><a href="sub_01.html#online">아이스크림 케이크</a></li>
+                                <li><a href="sub_01.html#offline">오프라인 스토어</a></li>
+                                <li class="dropdown-sub"><a href="sub_01.html#offline">크리에이션 메뉴</a></li>
+                                <li class="dropdown-sub"><a href="sub_01.html#offline">아이스크림 드링크</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="gnb_title">Online Shop</a>
+                            <ul class="dropdown-nav">
+                                <li><a href="">컵 아이스크림</a></li>
+                                <li><a href="">바 아이스크림</a></li>
+                                <li><a href="">샌드&콘 아이스크림</a></li>
+                                <li><a href="">아이스크림 케이크</a></li>
+                                <li><a href="">배송공지</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="gnb_title">News</a>
+                            <ul class="dropdown-nav">
+                                <li><a href="#">이벤트</a></li>
+                                <li><a href="#">공지사항</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="gnb_title">B2B</a>
+                            <ul class="dropdown-nav">
+                                <li><a href="#">비즈니스 파트너</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <p>
+                        <a href="" class="login">login</a>
+                        <a href="" class="hamburger" aria-label="모바일 메뉴 열기"><img src="image/hamburger.png" alt=""></a>
+                    </p>
+
+                    <div class="mobile-menu">
+                        <ul class="gnb-mobile"></ul>
                     </div>
                 </div>
+                <div class="menu-overlay"></div>
             </div>
-            <script>
-                // 상단 항목들
-                const nav = document.querySelector('.nav_bottom');
-                const titles = Array.from(document.querySelectorAll('.gnb > .nav_title'));
-
-                function openItem(item) {
-                    titles.forEach(li => li.classList.toggle('active', li === item));
-                }
-                function closeAll() {
-                    titles.forEach(li => li.classList.remove('active'));
-                }
-
-                titles.forEach((li, idx) => {
-                    const link = li.querySelector(':scope > a'); // 상단 a
-                    if (!link) return;
-
-                    // 마우스 올리면 열림
-                    li.addEventListener('mouseenter', () => openItem(li));
-                    // 탭 포커스되면 열림
-                    link.addEventListener('focus', () => openItem(li));
-
-                    // 키보드 내비게이션(선택): 좌우 이동, ESC 닫기
-                    li.addEventListener('keydown', (e) => {
-                        if (e.key === 'Escape') {
-                            closeAll();
-                            link.blur();
-                        } else if (e.key === 'ArrowRight') {
-                            e.preventDefault();
-                            const next = titles[(idx + 1) % titles.length].querySelector(':scope > a');
-                            next?.focus();
-                        } else if (e.key === 'ArrowLeft') {
-                            e.preventDefault();
-                            const prev = titles[(idx - 1 + titles.length) % titles.length].querySelector(':scope > a');
-                            prev?.focus();
-                        }
-                    });
-                });
-
-                // 메뉴 영역을 벗어나면 닫기 (조금의 딜레이로 떨림 방지)
-                let hideTimer;
-                nav.addEventListener('mouseleave', () => {
-                    clearTimeout(hideTimer);
-                    hideTimer = setTimeout(() => closeAll(), 120);
-                });
-                nav.addEventListener('mouseenter', () => clearTimeout(hideTimer));
-
-                // 바깥 클릭하면 닫기
-                document.addEventListener('click', (e) => {
-                    if (!nav.contains(e.target)) closeAll();
-                });
-
-                // 전역 ESC
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape') closeAll();
-                });
-            </script>
         </div>
-        <div class="visual">
-            <div class="bxslider">
-                <div class="visual_img">
-                    <img src="image/main_visual_01.png" alt="">
-                    <ul>
-                        <li><b>대구시립무용단 제88회 정기공연 < 2025 dance now asia in daegu ></></b></li>
-                        <li>대구문화예술회관 팔공홀 '대구시립무용단' 7. 22 (금) 19:30 / 8. 23 (토) 17:00</li>
-                    </ul>
-                </div>
-                <div class="visual_img">
-                    <img src="image/main_visual_02.png" alt="">
-                    <ul>
-                        <li><b>전통연희극 <광대></b></li>
-                        <li>대구문화예술회관 팔공홀 8. 15 (금) 19:30 / 8. 16 (토) 17:00</li>
-                    </ul>
-                </div>
-                <div class="visual_img">
-                    <img src="image/main_visual_03.png" alt="">
-                    <ul>
-                        <li><b>제10회 대구사진비엔날레 < 생명의 울림 ></b></li>
-                        <li>대구문화예술회관 1~12전시관, 비슬홀 9. 18 (목) 10:00 / 11. 16 (토) 19:00</li>
-                    </ul>
-                </div>
-            </div>
-            <script>
-                $(function () {
-                    $('.bxslider').bxSlider({
-                        mode: 'fade',
-                        captions: true,
-                        controls: false,
-                    });
+
+        <script>
+            $(window).on("load", function () {
+                const gnbHtml = $(".gnb").html();
+                if (gnbHtml) $(".gnb-mobile").html(gnbHtml);
+
+                $(".hamburger").off("click").on("click", function (e) {
+                    e.preventDefault();
+                    $(".mobile-menu, .menu-overlay").toggleClass("active");
+                    $(this).toggleClass("active");
                 });
-            </script>
+
+                $(".menu-overlay").off("click").on("click", function () {
+                    $(".mobile-menu, .menu-overlay, .hamburger").removeClass("active");
+                });
+
+                $(document).off("click", ".gnb-mobile .gnb_title").on("click", ".gnb-mobile .gnb_title", function (e) {
+                    e.preventDefault();
+                    const parentLi = $(this).closest("li");
+                    if (parentLi.hasClass("active")) {
+                        parentLi.removeClass("active");
+                    } else {
+                        $(".gnb-mobile li.active").removeClass("active");
+                        parentLi.addClass("active");
+                    }
+                });
+            });
+        </script>
+
+        <div class="video-wrap">
+            <iframe class="video"
+                src="https://player.vimeo.com/video/1071707544?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&background=1"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" title="(HS)하겐다즈_리테일_스틱바영상 tvcf용 0220(mp4)" loading="lazy"></iframe>
         </div>
     </header>
+    
     <main>
-        <div class="reservation">
-            <h2>공연 및 예매안내</h2>
-            <div class="reservation_warp">
-                <div class="reservation_bottom_warp">
-                    <div class="reservation_01">
-                        <div class="reservation_01_img"><img src="image/phone.png" alt=""></div>
-                        <div class="reservation_01_text">
-                            <p>전화예매</p>
-                            <ul>
-                                <li>NOL Ticket</li>
-                                <li>대구문화예술회관</li>
-                            </ul>
-                            <ul>
-                                <li>1588-7890</li>
-                                <li>053)430-7667, 7668</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="reservation_02">
-                        <div class="reservation_02_img"><img src="image/reservation.png" alt=""></div>
-                        <div class="reservation_02_text">
-                            <p>온라인예매</p>
-                            <ul>
-                                <li>NOL Ticket</li>
-                            </ul>
-                            <a href="https://nol.interpark.com/ticket">예매하기<img src="image/long_right_arrow.png" alt=""></a>
-                        </div>
-                    </div>
+        <div class="menu" id="menu">
+            <div class="menu_warp">
+                <h2>HaagenDazs Menu</h2>
+                <ul class="menu_bar">
+                    <li class="active"><span>Cup Icecream</span></li>
+                    <li><span>Bar Icecream</span></li>
+                    <li><span>Sand&Cone</span></li>
+                    <li><span>Cake</span></li>
+                </ul>
+                <ul class="menu_list">
+                    <li id="cup01"><img src="image/cup_01.png" alt=""></li>
+                    <li><img src="image/cup_02.png" alt=""></li>
+                    <li><img src="image/cup_03.png" alt=""></li>
+                    <li><img src="image/cup_04.png" alt=""></li>
+                    <li><img src="image/cup_05.png" alt=""></li>
+                </ul>
+                <a href="sub_01.html#online">
+                    <p>more <img src="image/circle.png" alt=""></p>
+                </a>
+            </div>
+        </div>
+    
+        <div class="modal" id="productModal">
+            <div class="modal__overlay" id="overlay"></div>
+            <div class="modal__box">
+                <button class="modal__close" id="closeBtn">✕</button>
+        
+                <div class="modal__imgwrap">
+                    <img src="image/cup_01.png" alt="하겐다즈 쿠키앤그린티 아이스크림">
                 </div>
-                <div class="reservation_button">
-                    <a href="">
-                        <p>공연안내</p>
-                    </a>
-                    <a href="">
-                        <p>대관신청</p>
-                    </a>
-                    <a href="">
-                        <p>좌석배치도</p>
-                    </a>
-                    <a href="">
-                        <p>오시는길</p>
-                    </a>
-                    <a href="">
-                        <p>관람후기</p>
-                    </a>
+        
+                <div class="modal__content">
+                    <h3>하겐다즈 쿠키앤그린티 (미니컵) 100ml</h3>
+                    <p>Cookies & Green Tea Ice Cream</p>
+                    <p>압도적 함량의 Real 쿠키와 최상급 그린티의 우아한 만남!</p>
+
+                    <div class="modal__allergy">
+                        <span></span><p>알레르기 유발 성분 : 우유, 계란, 밀 함유</p>
+                    </div>
+        
+                    <table class="nutri-table">
+                        <thead>
+                            <tr>
+                                <th>구분</th>
+                                <th>1회 제공량</th>
+                                <th>기준치</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>열량</td>
+                                <td>230 kcal</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>나트륨</td>
+                                <td>70 mg</td>
+                                <td>4%</td>
+                            </tr>
+                            <tr>
+                                <td>탄수화물</td>
+                                <td>22 g</td>
+                                <td>7%</td>
+                            </tr>
+                            <tr>
+                                <td>당류</td>
+                                <td>19 g</td>
+                                <td>19%</td>
+                            </tr>
+                            <tr>
+                                <td>지방</td>
+                                <td>14 g</td>
+                                <td>26%</td>
+                            </tr>
+                            <tr>
+                                <td>포화지방</td>
+                                <td>9 g</td>
+                                <td>60%</td>
+                            </tr>
+                            <tr>
+                                <td>콜레스테롤</td>
+                                <td>70 mg</td>
+                                <td>23%</td>
+                            </tr>
+                            <tr>
+                                <td>단백질</td>
+                                <td>4 g</td>
+                                <td>7%</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-        <div class="exhibition_warp">
-            <div class="exhibition">
-                <h2>진행중인 공연·전시</h2>
-                <div class="exhibition_top">
-                    <p>현재 진행중인 공연 · 전시를 확인하실 수 있습니다.</p>
-                    <a href="deagu_sub1.html">
-                        월간일정 <img src="image/monthly.png" alt="">
-                    </a>
-                </div>
-                <div class="wrapper">
-                    <div class="slick">
-                        <div>
-                            <p>팔공홀 / 공연</p>
-                            <img src="image/poster_01.jpg" alt="">
-                        </div>
-                        <div>
-                            <p>대구문화예술회관 / 공연</p>
-                            <img src="image/poster_02.jpg" alt="">
-                        </div>
-                        <div>
-                            <p>팔공홀 / 공연</p>
-                            <img src="image/poster_03.png" alt="">
-                        </div>
-                        <div>
-                            <p>팔공홀 / 공연</p>
-                            <img src="image/poster_04.jpg" alt="">
-                        </div>
-                        <div>
-                            <p>팔공홀 / 공연</p>
-                            <img src="image/poster_05.jpeg" alt="">
-                        </div>
-                        <div>
-                            <p>대구문화예술회관 / 공연</p>
-                            <img src="image/poster_06.jpg" alt="">
-                        </div>
-                    </div>
-                    <script>
-                        $(function () {
-                            if ($('.slick').hasClass('slick-initialized')) {
-                                $('.slick').slick('unslick');
-                            }
+    
+        <script>
+            // 메뉴 탭 active 유지
+            document.querySelectorAll(".menu_bar").forEach(list => {
+                list.addEventListener("click", e => {
+                    const li = e.target.closest("li");
+                    if (!li) return;
+                    list.querySelectorAll("li").forEach(el => el.classList.remove("active"));
+                    li.classList.add("active");
+                });
+            });
 
-                            const $slider = $('.slick');
+            // ✅ id 이름 맞춘 cup01 클릭 시 모달 열기
+            document.getElementById("cup01").onclick = function () {
+                document.getElementById("productModal").classList.add("show");
+            };
 
-                            $slider.slick({
-                                autoplay: true,
-                                dots: true,
-                                speed: 150,
-                                ease: "linear",
-                                arrows: true,
-                                infinite: true,
-                                swipeToSlide: true,
-                                rows: 1,
-                                slidesToShow: 4,
-                                slidesToScroll: 1,
-                                responsive: [
-                                    { breakpoint: 1024, settings: { slidesToShow: 3 } },
-                                    { breakpoint: 600, settings: { slidesToShow: 2 } },
-                                    { breakpoint: 480, settings: { slidesToShow: 1 } }
-                                ]
-                            });
+            // 닫기 버튼과 오버레이 클릭 시 닫기
+            document.getElementById("overlay").onclick = closeModal;
+            document.getElementById("closeBtn").onclick = closeModal;
 
-                            const $dots = $('.slick-dots');
-                            const scrollbarClass = 'slick-scrollbar';
-                            const id = 'ssb-' + (Math.random() + 1).toString(36).slice(2);
-                            const maxIdx = Math.max(0, $dots.find('li').length - 1);
+            function closeModal() {
+                document.getElementById("productModal").classList.remove("show");
+            }
+        </script>
 
-                            $(`.${scrollbarClass}`).remove();
-
-                            const barHtml = `
-      <div class="${scrollbarClass} ${id}">
-        <input type="range" min="0" max="${maxIdx}" step="1" value="0" />
-      </div>`;
-                            $(barHtml).insertAfter($dots);
-
-                            let lastVal = 0;
-                            $('body').on('input change', `.${scrollbarClass} input`, function () {
-                                const v = Number(this.value) || 0;
-                                if (v !== lastVal) {
-                                    lastVal = v;
-                                    $slider.slick('slickGoTo', v);
-                                }
-                            });
-
-                            $slider.on('beforeChange', function (e, slick, curr, next) {
-                                const $range = $(`.${scrollbarClass} input`);
-                                if (!$range.is(':focus')) {
-                                    lastVal = next;
-                                    $range.val(next);
-                                }
-                            });
-                        });
-                    </script>
-                </div>
-            </div>
-        </div>
-        <div class="notice">
-            <div class="notice_top">
-                <h2>Notice</h2>
-                <div class="notice_button">
-                    <a href="">
-                        <p>더보기</p>
-                        <img src="image/plus.png" alt="">
-                    </a>
-                </div>
-            </div>
-            <div class="notice_bottom">
-                <a href="">
-                    <div class="notice_01">
-                        <p>관람객 투표로 '최종 1인 삼보미술상'을 뽑아 보세요! < 2025 올해의 청년작가 >
-                        </p>
-                        <div class="notice_01_warp">
-                            <div>전시안내</div>
-                            <b>7. 31 (fri) ~ 9. 6 (sat)</b>
-                        </div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="notice_02">
-                        <p>시립예술단(국악단, 무용단, 사무단원) 기간제 비상임단원 공개모집 공고
-                        </p>
-                        <div class="notice_02_warp">
-                            <div>채용안내</div>
-                            <b>8. 19 (tue) ~ 8. 22 (fri)</b>
-                        </div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="notice_03">
-                        <p>
-                            < 리딩 아티스트 > 유망한 중견 작가 4인과의 만남
-                        </p>
-                        <div class="notice_03_warp">
-                            <div>전시안내</div>
-                            <b>7. 31 (fri) ~ 9. 6 (sat)</b>
-                        </div>
-                    </div>
+        <div class="store_menu" id="store_menu">
+            <div class="store_menu_warp">
+                <h2>Store Menu</h2>
+                <ul class="store_menu_bar">
+                    <li class="active"><span>Creation Menu</span></li>
+                    <li><span>Icecream Drink</span></li>
+                </ul>
+                <ul class="store_menu_list">
+                    <li><img src="image/dessert_01.png" alt=""></li>
+                    <li><img src="image/dessert_02.png" alt=""></li>
+                    <li><img src="image/dessert_04.png" alt=""></li>
+                    <li><img src="image/dessert_03.png" alt=""></li>
+                </ul>
+                <a href="sub_01.html#offline">
+                    <p>more<img src="image/circle.png" alt=""></p>
                 </a>
             </div>
-            <div class="notice_wihte"></div>
-        </div>
-        <div class="gallery_warp">
-            <div class="gallery">
-                <h2>포토갤러리</h2>
-                <a href="" class="gallery_more"><img src="image/plus_ft.png" alt=""></a>
-                <div class="slider1_warp">
-                    <div class="slider1">
-                        <div class="slide"><a href="">
-                                <p>20250705 [토요시민콘서트] - 대구시립합창단</p><img src="image/gallery_01.png" alt="">
-                            </a></div>
-                        <div class="slide"><a href="">
-                                <p>2025 수요성설공연 - 노래하는 가야금 '놀다가'</p><img src="image/gallery_02.png" alt="">
-                            </a></div>
-                        <div class="slide"><a href="">
-                                <p>202506014 [토요시민콘서트] - 대구시립국악단</p><img src="image/gallery_03.png" alt="">
-                            </a></div>
-                    </div>
-                </div>
-                <script>
-                    $(document).ready(function () {
-                        $('.slider1').bxSlider({
-                            slideWidth: 380,
-                            minSlides: 2,
-                            maxSlides: 3,
-                            moveSlides: 1,
-                            controls: true,
-                            pager: false,
-                        });
+
+            <script>
+                menuItems.forEach(item => {
+                    item.addEventListener("click", () => {
+                        menuItems.forEach(i => i.classList.remove("active"));
+                        item.classList.add("active");
                     });
-                </script>
+                });
+            </script>
+
+            <div class="store_info_warp">
+                <div class="store_info">
+                    <h2><a href="sub_02.html">Store Info</a></h2>
+                    <ul class="store_info_list">
+                        <li>여의도점</li>
+                        <li>분당미금점</li>
+                        <li>서초점</li>
+                        <li>부산마린시티점</li>
+                        <li>판교점</li>
+                    </ul>
+                </div>
             </div>
+        </div>
+
+        <div class="sns_warp" id="sns_warp">
+            <div class="sns">
+                <div class="slider_controls">
+                    <button id="prev"><img src="image/arrow_left.png" width="42" height="42" alt="prev"></button>
+                    <h2>HaagenDazs News</h2>
+                    <button href="" id="next"><img src="image/arrow_right.png" width="42" height="42" alt="next"></button>
+                </div>
+
+                <div class="slider4">
+                    <div>
+                        <img src="image/sns_01.png" alt="">
+                        <div class="silder_text">
+                            <h3 class="slider_main_text_red">NEW 하겐다즈 리얼블랑 베리</h3>
+                            <p>최상급 딸기 과육이 가득한 스트로베리 아이스크림과 5가지 순수한 원재료로 만든 바닐라 아이스크림의 완벽한 조화</p>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="image/sns_02.png" alt="">
+                        <div class="silder_text">
+                            <h3 class="slider_main_text_green">NEW 바닐라 그린티 가든 케이크</h3>
+                            <p>순수한 다섯가지 원재료 리얼 바닐라 아이스크림과 달콤 쌉싸름한 그린티가 만나 하겐다즈 BEST 조합!</p>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="image/sns_03.png" alt="">
+                        <div class="silder_text">
+                            <h3 class="slider_main_text_red">NEW 쿠키&초콜릿 쿠키 컬렉션</h3>
+                            <p>모두가 사랑하는 하겐다즈 초콜릿 아이스크림과 바삭한 리얼 쿠키의 완벽한 조화</p>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="image/sns_04.png" alt="">
+                        <div class="silder_text">
+                            <h3 class="slider_main_text_green">NEW 쿠키&그린티 쿠키 컬렉션</h3>
+                            <p>엄선된 최상급 찻잎의 깊은 풍미를 담은 그린티 아이스크림에 바삭한 리얼 쿠키 조각 가득</p>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="image/sns_05.png" alt="">
+                        <div class="silder_text">
+                            <h3 class="slider_main_text_red">NEW 딸기 초코 조각 모둠 케이크</h3>
+                            <p>미리 컷팅된 8개의 조각으로 자를 걱정 없이 언제 어디서나 깔끔하게!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                $(window).on('load', function () {
+                    function getSlideWidth() {
+                        const winW = $(window).width();
+                        if (winW <= 480) return 300;
+                        if (winW <= 768) return 340;
+                        if (winW <= 1200) return 380;
+                        if (winW <= 1600) return 430;
+                        return 480;
+                    }
+
+                    // 이미지 다 불러온 다음 초기화
+                    let slider = $('.slider4').bxSlider({
+                        auto: true,
+                        autoControls: false,
+                        slideWidth: getSlideWidth(),
+                        maxSlides: 5,
+                        moveSlides: 1,
+                        slideMargin: 30,
+                        pager: false,
+                        controls: false
+                    });
+
+                    $('#next').on('click', function () {
+                        slider.goToNextSlide();
+                    });
+                    $('#prev').on('click', function () {
+                        slider.goToPrevSlide();
+                    });
+
+                    // 브라우저 리사이즈 시 슬라이드 다시 계산
+                    let resizeTimer;
+                    $(window).on('resize', function () {
+                        clearTimeout(resizeTimer);
+                        resizeTimer = setTimeout(function () {
+                            slider.reloadSlider({
+                                auto: true,
+                                autoControls: false,
+                                slideWidth: getSlideWidth(),
+                                maxSlides: 5,
+                                moveSlides: 1,
+                                slideMargin: 30,
+                                pager: false,
+                                controls: false
+                            });
+                        }, 200);
+                    });
+                });
+            </script>
         </div>
     </main>
-    <footer>
-        <div class="footer_top">
-            <ul>
-                <li>공연관련<img src="image/small_arrow_top.png" alt=""></li>
-                <li>전시관련<img src="image/small_arrow_top.png" alt=""></li>
-                <li>교육관련<img src="image/small_arrow_top.png" alt=""></li>
-                <li>유관기관<img src="image/small_arrow_top.png" alt=""></li>
-                <li>협력기관<img src="image/small_arrow_top.png" alt=""></li>
-            </ul>
-        </div>
-        <div class="footer_bottom">
-            <img src="image/logo_ft.png" alt="">
-            <div>
-                <ul class="footer_01">
+
+    <script>
+        const menuBarItems = document.querySelectorAll('.menu_bar li');
+        menuBarItems.forEach(item => {
+            item.addEventListener('click', () => {
+                menuBarItems.forEach(el => el.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+        const storeMenuItems = document.querySelectorAll('.store_menu_bar li');
+        storeMenuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                storeMenuItems.forEach(el => el.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+    </script>
+
+    <footer id="footer">
+        <div class="footer">
+            <h1><a href="index.html"><img src="image/logo_01.png" alt=""></a></h1>
+            <h1><a href="index.html"><img src="image/logo_02_ft.png" alt=""></a></h1>
+            <div class="footer_warp">
+                <ul class="footer_list_01">
                     <li>개인정보처리방침</li>
-                    <li>행정서비스현장</li>
-                    <li>영상정보처리기기 운영</li>
-                    <li>이메일집단수집거부</li>
-                    <li>찾아오시는길</li>
+                    <li>이용약관</li>
+                    <li>이메일무단수집거부</li>
                 </ul>
-                <ul class="footer_02">
-                    <li>(42672) 대구광역시 달서구 공원순환로 201</li>
-                    <li>대표전화 : 053-430-7600</li>
-                    <li>팩스 : 053-430-7609</li>
+                <ul class="footer_list_02">
+                    <li>한국하겐-다즈(주) 대표 : 김미조</li>
+                    <li>주소 : 서울특별시 강남구 테헤란로 311 (역삼동, 아남타워 6층) | 사업자등록번호 : 106-81-28964</li>
+                    <li>통신판매신고 : 강남-8186 | 대표전화 : 02-508-8500 | 개인정보관리책임자 : 김미조 대표</li>
                 </ul>
-                <p>본 홈페이지에 게시된 전자우편주소는 개인정보보호법 및 정보통신망법에 따라 무단 수집을 거부합니다. Copyright © Daegu Arts Center All Right
-                    Reserved</p>
+                <ul class="footer_list_03">
+                    <li>주식회사 에스와이피글로벌 대표 : 김광용 (사업자정보확인)</li>
+                    <li>주소 : 서울특별시 강남구 봉은사로112길 26길, 5층 502호 (삼성동, 한호빌딩) | 사업자등록번호 : 262-88-00829</li>
+                    <li>통신판매신고 : 2018-서울강남-00403 | 대표전화 : 070-7549-7020 | Email : cs@unitoa | 개인정보관리책임자 : 조현정</li>
+                </ul>
+                <p>© 2025 General Mills. All Rights Reserved.</p>
             </div>
         </div>
+
+        <a id="topBtn" href="#"><img src="image/arrow_top.png" alt="">
+            <p>Top</p>
+        </a>
     </footer>
+
+    <script>
+        $(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 250) {
+                    $('#topBtn').fadeIn();
+                } else {
+                    $('#topBtn').fadeOut();
+                }
+            });
+            $("#topBtn").click(function () {
+                $('html, body').animate({ scrollTop: 0 }, 400);
+                return false;
+            });
+        });
+    </script>
+
+    <script src="https://player.vimeo.com/api/player.js"></script>
+
+    <script>
+        (function () {
+            const nav = document.querySelector('.nav_warp');
+            const header = document.querySelector('header');
+            if (!nav || !header) return;
+
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        nav.classList.remove('shrink');
+                    } else {
+                        nav.classList.add('shrink');
+                    }
+                });
+            }, { root: null, threshold: 0.1 });
+
+            io.observe(header);
+
+            window.addEventListener('load', () => {
+                const rect = header.getBoundingClientRect();
+                if (rect.bottom <= 0) nav.classList.add('shrink');
+                else nav.classList.remove('shrink');
+            });
+        })();
+    </script>
+
+    <script>
+        const sections = document.querySelectorAll('header, .menu, .store_menu, .sns_warp, footer');
+        const dots = document.querySelectorAll('.dot-nav .dot');
+
+        function activateDot(index) {
+            dots.forEach((dot, i) => { dot.classList.toggle('active', i === index); });
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const visibleIndex = Array.from(sections).indexOf(entry.target);
+                    activateDot(visibleIndex);
+                }
+            });
+        }, { threshold: 0.4, rootMargin: '-20% 0px -20% 0px' });
+
+        sections.forEach(section => observer.observe(section));
+        dots.forEach((dot, i) => dot.addEventListener('click', () => {
+            sections[i].scrollIntoView({ behavior: 'smooth' });
+        }));
+    </script>
 </body>
 
 </html>

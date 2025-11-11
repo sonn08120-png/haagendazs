@@ -1,47 +1,23 @@
 @font-face {
-    font-family: "moniqa";
-    src: url("../font/Moniqa-Display.woff2") format("woff2"),
-    url("../font/Moniqa-Display.woff") format("woff"),
-    url("../font/Moniqa-Display.ttf") format("truetype");
+    font-family: "ns_regular";
+    src: url("../font/NotoSansKR-Regular.woff2") format("woff2"),
+    url("../font/NotoSansKR-Regular.woff") format("woff"),
+    url("../font/NotoSansKR-Regular.ttf") format("truetype");
     font-weight: 400;
 }
 
 @font-face {
-    font-family: "moniqa italic";
-    src: url("../font/Moniqa-ItalicDisplay.woff2") format("woff2"),
-    url("../font/Moniqa-ItalicDisplay.woff") format("woff"),
-    url("../font/Moniqa-ItalicDisplay.ttf") format("truetype");
-    font-weight: 400;
+    font-family: "ns_semibold";
+    src: url("../font/NotoSansKR-SemiBold.woff2") format("woff2"),
+    url("../font/NotoSansKR-SemiBold.woff") format("woff"),
+    url("../font/NotoSansKR-SemiBold.ttf") format("truetype");
+    font-weight: 600;
 }
 
 @font-face {
-    font-family: "pretendard regular";
-    src: url("../font/Pretendard-Regular.woff2") format("woff2"),
-    url("../font/Pretendard-Regular.woff") format("woff"),
-    url("../font/Pretendard-Regular.ttf") format("truetype");
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: "pretendard bold";
-    src: url("../font/Pretendard-Bold.woff2") format("woff2"),
-    url("../font/Pretendard-Bold.woff") format("woff"),
-    url("../font/Pretendard-Bold.ttf") format("truetype");
-    font-weight: 800;
-}
-
-@font-face {
-    font-family: "pretendard black";
-    src: url("../font/Pretendard-Black.woff2") format("woff2"),
-    url("../font/Pretendard-Black.woff") format("woff"),
-    url("../font/Pretendard-Black.ttf") format("truetype");
-    font-weight: 900;
-}
-
-@font-face {
-    font-family: "tenada";
-    src: url("../font/Tenada.woff2") format("woff2"),
-    url("../font/Tenada.woff") format("woff"),
-    url("../font/Tenada.ttf") format("truetype");
+    font-family: "power";
+    src: url("../font/강원교육튼튼.woff2") format("woff2"),
+    url("../font/강원교육튼튼.woff") format("woff"),
+    url("../font/강원교육튼튼.ttf") format("truetype");
     font-weight: normal;
 }

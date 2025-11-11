@@ -116,6 +116,7 @@ header {
     overflow: hidden;
 }
 
+
 .video-wrap {
     position: absolute;
     top: 0;
@@ -126,6 +127,7 @@ header {
 }
 
 .video-wrap iframe {
+    border: 0;
     width: 100%;
     height: auto;
     aspect-ratio: 16 / 9;
